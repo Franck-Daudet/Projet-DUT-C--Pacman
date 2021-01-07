@@ -1,0 +1,7 @@
+<map id="ppal" name="ppal">
+<area shape="rect" id="node2" href="$gridmanagement_8cpp.html#af00a54b22936aa9f51f2a68d7069ee14" title="InitGrid" alt="" coords="115,5,181,32"/>
+<area shape="rect" id="node3" href="$gridmanagement_8cpp.html#a10e79682821f31ef5d37467b59fff20d" title="DisplayGrid" alt="" coords="103,56,193,83"/>
+<area shape="rect" id="node4" href="$gridmanagement_8cpp.html#ac9357ee33d7442ff035f7a0c2b61cce6" title="Color" alt="" coords="244,81,297,108"/>
+<area shape="rect" id="node5" href="$game_8cpp.html#a5b4ac3ec52e7ac4897c510187afcc413" title="Move the current token according to the character in the 2nd parameter. " alt="" coords="102,157,194,184"/>
+<area shape="rect" id="node6" href="$gridmanagement_8cpp.html#a6a3ca153f0817e8ba91a023b886bb662" title="Clear the current terminal. " alt="" coords="100,208,196,235"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="type.h" name="type.h">
+<area shape="rect" id="node2" href="$game_8h.html" title="Set of usefull functions for the game. " alt="" coords="13,80,79,107"/>
+<area shape="rect" id="node5" href="$params_8h.html" title="Paramters&#39; definition and associated functions. " alt="" coords="103,80,181,107"/>
+<area shape="rect" id="node6" href="$gridmanagement_8h.html" title="Set of usefull functions for the grid management. " alt="" coords="205,80,338,107"/>
+<area shape="rect" id="node7" href="$gridmanagement_8cpp.html" title="gridmanagement.cpp" alt="" coords="255,155,402,181"/>
+<area shape="rect" id="node3" href="$game_8cpp.html" title="game.cpp" alt="" coords="106,155,186,181"/>
+<area shape="rect" id="node4" href="$main_8cpp.html" title="Terminal&#39;s color management beginning of the project titled &quot;catch me if you can&quot;. " alt="" coords="5,155,81,181"/>
+</map>
