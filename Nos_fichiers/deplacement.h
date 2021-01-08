@@ -6,7 +6,7 @@
 using namespace std;
 
 void MoveElt (vector<vector<string>> & map,vector<int> pos,vector<int> AddPos){
-	map[pos[0]+AddPos[0]][pos[1]+AddPos[1]] = "\u15E7";
+	map[pos[0]+AddPos[0]][pos[1]+AddPos[1]] = Pacman;
 	map[pos[0]][pos[1]]= " ";
 }
 bool ColisionTest(string & FutureElement){
