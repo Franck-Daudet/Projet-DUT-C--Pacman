@@ -2,6 +2,7 @@
 #include <string>
 #include <algorithm> 
 #include "getch.h"
+#include "affichage.h" //for Pacman variable
 
 using namespace std;
 
