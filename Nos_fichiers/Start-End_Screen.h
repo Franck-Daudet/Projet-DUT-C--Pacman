@@ -19,7 +19,7 @@ using namespace std;
 int Start_Screen()
 {
 
-    ifstream Flow("../PacMan/Nos_fichiers/TxtDirectory/StartSheet.txt");
+    ifstream Flow("../Projet-DUT-C--Pacman/Nos_fichiers/TxtDirectory/StartSheet.txt");
     string line;
     while(getline(Flow, line))
     {
@@ -58,7 +58,7 @@ int Start_Screen()
 int End_Screen()
 {
 
-    ifstream Flow("../PacMan/Nos_fichiers/TxtDirectory/EndSheet.txt");
+    ifstream Flow("../Projet-DUT-C--Pacman/Nos_fichiers/TxtDirectory/EndSheet.txt");
     string line;
     while(getline(Flow, line))
     {
