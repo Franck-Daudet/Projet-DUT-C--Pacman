@@ -34,7 +34,7 @@ void ShowMap(vector<vector<string>> & map){
 	Couleur(KNoir);
 	for (int x = 0; x < map.size(); x++) {
 		for (int y = 0; y < map[x].size(); y++) {
-			if ( map[x][y] == "\u15E7"){ //Pacman ??? 
+			if ( map[x][y] == "\u15E7"){ //Pacman
 				Couleur(KJaune);
 				cout << map[x][y] ;
 				Couleur(KNoir);

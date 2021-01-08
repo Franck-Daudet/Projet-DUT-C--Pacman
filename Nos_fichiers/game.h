@@ -17,9 +17,7 @@ vector<vector<string>> kmap{
 
 
 void Launch_Game(){
-    vector<int> pos;	
-	pos.push_back(3);
-	pos.push_back(4);
+    vector<int> pos {3,4};
 	while (true)
 	{
 		ShowMap(kmap);
