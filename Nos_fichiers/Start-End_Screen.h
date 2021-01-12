@@ -13,7 +13,8 @@
 
 #include<iostream>
 #include<fstream>
-
+#include <cstdlib>
+#include <unistd.h>
 
 
 using namespace std;
@@ -22,15 +23,31 @@ void ClearScreen2()
 {
     cout << "\033[H\033[2J";
 }
-int Start_Screen()
+
+void LoadScreen(const string& link)
 {
     ClearScreen2();
-    ifstream Flow("../Projet-DUT-C--Pacman/Nos_fichiers/TxtDirectory/StartSheet.txt");
+    ifstream Flow(link);
     string line;
     while(getline(Flow, line))
-    {
         cout << line << endl;
-    }
+}
+
+int Start_Screen()
+{
+    LoadScreen("../Projet-DUT-C--Pacman/Nos_fichiers/TxtDirectory/StartSheet.txt");
+    usleep(200000);
+    LoadScreen("../Projet-DUT-C--Pacman/Nos_fichiers/TxtDirectory/StartSheet2.txt");
+    usleep(200000);
+    LoadScreen("../Projet-DUT-C--Pacman/Nos_fichiers/TxtDirectory/StartSheet.txt");
+    usleep(200000);
+    LoadScreen("../Projet-DUT-C--Pacman/Nos_fichiers/TxtDirectory/StartSheet2.txt");
+    usleep(200000);
+    LoadScreen("../Projet-DUT-C--Pacman/Nos_fichiers/TxtDirectory/StartSheet.txt");
+    usleep(200000);
+    LoadScreen("../Projet-DUT-C--Pacman/Nos_fichiers/TxtDirectory/StartSheet2.txt");
+    usleep(200000);
+    LoadScreen("../Projet-DUT-C--Pacman/Nos_fichiers/TxtDirectory/StartSheet.txt");
     int Choice;
     while(true)
     {
@@ -44,13 +61,7 @@ int Start_Screen()
 
 int End_Screen()
 {
-    ClearScreen2();
-    ifstream Flow("../Projet-DUT-C--Pacman/Nos_fichiers/TxtDirectory/EndSheet.txt");
-    string line;
-    while(getline(Flow, line))
-    {
-        cout << line << endl;
-    }
+    LoadScreen("../Projet-DUT-C--Pacman/Nos_fichiers/TxtDirectory/EndSheet.txt");
     int Choice;
     while(true)
     {
@@ -58,7 +69,6 @@ int End_Screen()
         if (Choice == 1 || Choice == 2 || Choice == 3 || Choice == 4 ) return Choice;
         else
             cout <<"Wrong input (you are supposed to write 1 or 2 or 3)" << endl;
-
     }
 
 }
