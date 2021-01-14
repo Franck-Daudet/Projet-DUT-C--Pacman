@@ -7,7 +7,7 @@ using namespace std;
 #include "deplacement.h"
 #include "affichage.h"
 
-
+// Different map
 vector<vector<string>> kmap{
 	{"╔","═","═","═","═","═","═",".","═","═","═","═","═","═","╗"},
 	{"║","ᗧ",".",".",".",".",".",".",".",".",".",".",".",".","║"},
