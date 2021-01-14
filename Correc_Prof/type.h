@@ -78,6 +78,6 @@ const std::map <std::string, std::string> KColor
 /**
  * @brief KEmpty : character for an empty cell
  */
-const char KEmpty        = ' ';
+const char KEmpty= ' ';
 
 #endif // TYPE_H
