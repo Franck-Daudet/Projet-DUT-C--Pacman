@@ -69,6 +69,7 @@ void Jump(vector<int> & pos,vector<int> Addpos, vector<vector<string>> & map){
 }
 
 void MoveCharacter (vector<int> & pos,vector<vector<string>> & map){
+	//Movement character whith z,q,s,d	
 	char x;
 	x=getch();
 	vector<int> Addtopos ;
