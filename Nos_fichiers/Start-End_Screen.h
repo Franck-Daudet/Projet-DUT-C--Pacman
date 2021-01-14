@@ -19,7 +19,9 @@
 
 using namespace std;
 
-void ClearScreen2()
+
+
+void ClearScreen2() /*Clear the screen*/
 {
     cout << "\033[H\033[2J";
 }
@@ -33,7 +35,7 @@ void LoadScreen(const string& link)
         cout << line << endl;
 }
 
-int Start_Screen()
+int Start_Screen() /*different Start menu option and character animation*/
 {
     string BeginLink ="../Projet-DUT-C--Pacman/Nos_fichiers/TxtDirectory/StartSheet";
     LoadScreen(BeginLink+".txt");
@@ -60,7 +62,7 @@ int Start_Screen()
 
 }
 
-int End_Screen()
+int End_Screen() /*different End menu option and Gost animation*/
 {
     string BeginLink ="../Projet-DUT-C--Pacman/Nos_fichiers/TxtDirectory/EndSheetsDr/EndSheet";
     LoadScreen(BeginLink+".txt");
