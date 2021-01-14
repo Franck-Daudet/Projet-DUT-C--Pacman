@@ -12,6 +12,7 @@
 
 using namespace std;
 
+// Start game
 int main()
 {
     Launch_Game();
