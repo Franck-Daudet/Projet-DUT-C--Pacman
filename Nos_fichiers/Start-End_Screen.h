@@ -35,7 +35,7 @@ void LoadScreen(const string& link)
         cout << line << endl;
 }
 
-int Start_Screen() /*different Start menu option and character animation*/
+unsigned Start_Screen() /*different Start menu option and character animation*/
 {
     string BeginLink ="../Projet-DUT-C--Pacman/Nos_fichiers/TxtDirectory/StartSheet";
     LoadScreen(BeginLink+".txt");
@@ -51,7 +51,7 @@ int Start_Screen() /*different Start menu option and character animation*/
     LoadScreen(BeginLink+"2.txt");
     usleep(200000);
     LoadScreen(BeginLink+".txt");
-    int Choice;
+    unsigned Choice;
     while(true)
     {
         cin >> Choice;
@@ -62,7 +62,7 @@ int Start_Screen() /*different Start menu option and character animation*/
 
 }
 
-int End_Screen() /*different End menu option and Gost animation*/
+unsigned End_Screen() /*different End menu option and Gost animation*/
 {
     string BeginLink ="../Projet-DUT-C--Pacman/Nos_fichiers/TxtDirectory/EndSheetsDr/EndSheet";
     LoadScreen(BeginLink+".txt");
@@ -71,13 +71,13 @@ int End_Screen() /*different End menu option and Gost animation*/
     usleep(200000);
     while(true)
     {
-        for (int i{3}; i <= 14; i++)
+        for (unsigned i{3}; i <= 14; i++)
         {
             LoadScreen(BeginLink+to_string(i)+".txt");
             usleep(200000);
         }
      }
-    int Choice;
+    unsigned Choice;
     while(true)
     {
         cin >> Choice;

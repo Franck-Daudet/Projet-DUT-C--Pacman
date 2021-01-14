@@ -15,5 +15,7 @@ using namespace std;
 // Start game
 int main()
 {
+    //Start_Screen();
     Launch_Game();
+    //End_Screen();
 }
