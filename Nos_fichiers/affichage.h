@@ -32,6 +32,7 @@ void Color (const string & coul){
     cout << "\033[" << coul <<"m";
 }
 void ShowMap(vector<vector<string>> & map){
+	// Color map and show it
 	ClearScreen ();
 	Color(KBCyan);
 	Color(KNoir);
