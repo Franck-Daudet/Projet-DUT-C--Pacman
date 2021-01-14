@@ -7,6 +7,7 @@ using namespace std;
 #include "deplacement.h"
 #include "affichage.h"
 
+
 vector<vector<string>> kmap{
 	{"╔","═","═","═","═","═","═",".","═","═","═","═","═","═","╗"},
 	{"║","ᗧ",".",".",".",".",".",".",".",".",".",".",".",".","║"},
@@ -27,6 +28,7 @@ vector<vector<string>> kmap{
 	{"╚","═","═","═","═","═","═",".","═","═","═","═","═","═","╝"}};
 
 
+// start the game and show map/enemies/character
 void Launch_Game(){
     vector<int> pos {1,1};
 	while (true)

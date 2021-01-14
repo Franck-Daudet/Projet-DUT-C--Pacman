@@ -21,6 +21,8 @@ void MoveCharacter (vector<int> pos);
 void MoveElt (vector<vector<string>> & map,vector<int> pos,vector<int> AddPos);
 
 
+
+
 void ClearScreen (){
 	//Clear the screen
     cout << "\033[H\033[2J";
