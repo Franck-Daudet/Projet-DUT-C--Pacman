@@ -13,8 +13,8 @@
 
 #include<iostream>
 #include<fstream>
-#include <cstdlib>
-#include <unistd.h>
+#include<cstdlib>
+#include<unistd.h>
 
 
 using namespace std;
@@ -35,19 +35,20 @@ void LoadScreen(const string& link)
 
 int Start_Screen()
 {
-    LoadScreen("../Projet-DUT-C--Pacman/Nos_fichiers/TxtDirectory/StartSheet.txt");
+    string BeginLink ="../Projet-DUT-C--Pacman/Nos_fichiers/TxtDirectory/StartSheet";
+    LoadScreen(BeginLink+".txt");
     usleep(200000);
-    LoadScreen("../Projet-DUT-C--Pacman/Nos_fichiers/TxtDirectory/StartSheet2.txt");
+    LoadScreen(BeginLink+"2.txt");
     usleep(200000);
-    LoadScreen("../Projet-DUT-C--Pacman/Nos_fichiers/TxtDirectory/StartSheet.txt");
+    LoadScreen(BeginLink+".txt");
     usleep(200000);
-    LoadScreen("../Projet-DUT-C--Pacman/Nos_fichiers/TxtDirectory/StartSheet2.txt");
+    LoadScreen(BeginLink+"2.txt");
     usleep(200000);
-    LoadScreen("../Projet-DUT-C--Pacman/Nos_fichiers/TxtDirectory/StartSheet.txt");
+    LoadScreen(BeginLink+".txt");
     usleep(200000);
-    LoadScreen("../Projet-DUT-C--Pacman/Nos_fichiers/TxtDirectory/StartSheet2.txt");
+    LoadScreen(BeginLink+"2.txt");
     usleep(200000);
-    LoadScreen("../Projet-DUT-C--Pacman/Nos_fichiers/TxtDirectory/StartSheet.txt");
+    LoadScreen(BeginLink+".txt");
     int Choice;
     while(true)
     {
@@ -61,7 +62,19 @@ int Start_Screen()
 
 int End_Screen()
 {
-    LoadScreen("../Projet-DUT-C--Pacman/Nos_fichiers/TxtDirectory/EndSheet.txt");
+    string BeginLink ="../Projet-DUT-C--Pacman/Nos_fichiers/TxtDirectory/EndSheetsDr/EndSheet";
+    LoadScreen(BeginLink+".txt");
+    usleep(200000);
+    LoadScreen(BeginLink+"2.txt");
+    usleep(200000);
+    while(true)
+    {
+        for (int i{3}; i <= 14; i++)
+        {
+            LoadScreen(BeginLink+to_string(i)+".txt");
+            usleep(200000);
+        }
+     }
     int Choice;
     while(true)
     {
