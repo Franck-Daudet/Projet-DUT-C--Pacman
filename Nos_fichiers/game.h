@@ -37,3 +37,52 @@ void Launch_Game(){
 		MoveCharacter(pos,kmap);
 	}
 }
+
+void PacMan()
+{
+    while(true)
+    {
+        unsigned u = Start_Screen();
+        if (u==1)
+        {
+            Launch_Game();
+            while(true)
+            {
+                unsigned v = End_Screen();
+                if (v==1)
+                {
+                    Launch_Game();
+                    continue;
+                }
+                else if (v==2)
+                {
+                    cout<<"W.I.P"<<endl;
+                    sleep(1);
+                    continue;
+                }
+                else if (v==3)
+                {
+                    cout<<"W.I.P"<<endl;
+                    sleep(1);
+                    continue;
+                }
+                else if (v==4)
+                    exit(0);
+            }
+        }
+        else if (u==2)
+        {
+            cout<<"W.I.P"<<endl;
+            sleep(1);
+            continue;
+        }
+        else if (u==3)
+        {
+            cout<<"W.I.P"<<endl;
+            sleep(1);
+            continue;
+        }
+        else if (u==4)
+            exit(0);
+    }
+}
