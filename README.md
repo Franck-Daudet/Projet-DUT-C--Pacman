@@ -26,7 +26,7 @@ Le jeu consiste à déplacer Pac-Man, un personnage qui, vu de profil, ressemble
 - [ ] pseudo
 - [ ] des objets qui donnent des bonus
 - [x] créations de quelques terrains dont un sera sélectionnés aléatoirement à chaque début de partie
-- [ ] des endroits avec des tps
+- [x] des endroits avec des tps
 - [x] écran de game over
 - [ ] commentaire 
-- [ ] Musique 
+- [ ] option
