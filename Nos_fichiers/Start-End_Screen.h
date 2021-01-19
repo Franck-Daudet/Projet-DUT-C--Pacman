@@ -1,13 +1,11 @@
 #ifndef STARTEND_SCREEN_H
 #define STARTEND_SCREEN_H
 
-#endif // STARTEND_SCREEN_H
-
-/**
+/*!
  * \file Start-End_Screen.h
  * \brief Show Home Screen and Game Over
  * \author Nicolas Jaubert
- * \version 1.0
+ * \version 1.7.5
  * \date 08/01/21
  */
 
@@ -22,6 +20,7 @@
 #include <stdio.h>
 
 using namespace std;
+
 //Faut fixer ça par contre mais je sais pas vraiment comment faire
 //---------------------------------------------------------------------------------------
 
@@ -55,6 +54,12 @@ void ClearScreen2() /*Clear the screen*/
 
 //---------------------------------------------------------------------------------------
 
+/**
+ * @brief Load the file .txt and modify to incorporate colors
+ * @param[in] Link   The Link of the file
+ * @param[in] TheColor   The colot to incorporate
+ */
+
 void LoadScreen(const string& Link, const string& TheColor)
 {
     ClearScreen2();
@@ -74,6 +79,11 @@ void LoadScreen(const string& Link, const string& TheColor)
     }
     Flow.close();
 }
+
+/**
+ * @brief With getch, the function take the input of the player
+ * @return 1, 2, 3, 4 depending on user input
+ */
 
 unsigned FourChoices ()
 {
@@ -108,7 +118,12 @@ unsigned FourChoices ()
     return y;
 }
 
-unsigned Start_Screen() /*Animation of the Start menu + select of the option*/
+/*!
+ * \brief Load the Start Screen and allow a choice
+ * \return 1, 2, 3, 4 depending on the choice of the player
+ */
+
+unsigned Start_Screen() /*Animation of the Start menu + options choices*/
 {
     string BeginLink ="../Projet-DUT-C--Pacman/Nos_fichiers/TxtDirectory/StartSheet";
     LoadScreen(BeginLink+".txt", Kyellow);
@@ -128,7 +143,12 @@ unsigned Start_Screen() /*Animation of the Start menu + select of the option*/
 
 }
 
-unsigned End_Screen() /*different End menu option and Gost animation*/
+/*!
+ * \brief Load the Game Over Screen and allow a choice
+ * \return 1, 2, 3, 4 depending on the choice of the player
+ */
+
+unsigned End_Screen() /*Animation of the game over + options choices*/
 {
     string BeginLink ="../Projet-DUT-C--Pacman/Nos_fichiers/TxtDirectory/EndSheetsDr/EndSheet";
     LoadScreen(BeginLink+".txt", Kred);
@@ -145,3 +165,5 @@ unsigned End_Screen() /*different End menu option and Gost animation*/
     }*/
     return FourChoices();
 }
+
+#endif // STARTEND_SCREEN_H

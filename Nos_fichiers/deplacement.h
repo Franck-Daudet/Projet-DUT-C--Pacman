@@ -1,3 +1,14 @@
+#ifndef DEPLACEMENT_H
+#define DEPLACEMENT_H
+
+/*!
+ * \file deplacement.h
+ * \brief file for moving the character
+ * \author Franck Daudet
+ * \version 1.4
+ * \date 07/01/21
+ */
+
 #include <vector>
 #include <string>
 #include <algorithm>
@@ -8,16 +19,34 @@ using namespace std;
 
 // MATRICE YX (et non XY)
 
+/**
+ * @brief résumé à faire (voir correc prof pour exemple)
+ * @param[in, out] map   petit résumé à faire
+ * @return (voir exemple)
+ */
 
 unsigned MapXSize (vector<vector<string>> & map){
 	// return X size of the map
 	return map[0].size();
 }
 
+/**
+ * @brief résumé à faire (voir correc prof pour exemple)
+ * @param[in, out] map   petit résumé à faire
+ * @return (voir exemple)
+ */
+
 unsigned MapYSize (vector<vector<string>> & map){
 	// return Y size of the map
 	return map.size()-1;
 }
+
+/**
+ * @brief résumé à faire (voir correc prof pour exemple)
+ * @param[in, out] map   petit résumé à faire
+ * @param[ (à remplir) ] pos   petit résumé à faire
+ * @param[ (à remplir) ] NewX  petit résumé à faire
+ */
 
 void MoveXElt (vector<vector<string>> & map,vector<int> pos, int NewX){
 	// Move X pos of the Element
@@ -25,17 +54,37 @@ void MoveXElt (vector<vector<string>> & map,vector<int> pos, int NewX){
 	map[NewX][pos[1]] = "\u15E7";
 }
 
+/**
+ * @brief résumé à faire (voir correc prof pour exemple)
+ * @param[in, out] map   petit résumé à faire
+ * @param[ (à remplir) ] pos   petit résumé à faire
+ * @param[ (à remplir) ] NewY  petit résumé à faire
+ */
+
 void MoveYElt (vector<vector<string>> & map,vector<int> pos, int NewY){
 	// Move Y pos of the Element
 	map[pos[0]][pos[1]]= " ";
 	map[pos[0]][NewY] = "\u15E7";
 }
 
+/**
+ * @brief résumé à faire (voir correc prof pour exemple)
+ * @param[in, out] map   petit résumé à faire
+ * @param[ (à remplir) ] pos   petit résumé à faire
+ * @param[ (à remplir) ] AddPos   petit résumé à faire
+ */
+
 void MoveElt (vector<vector<string>> & map,vector<int> pos,vector<int> Addpos){
 	// Move X and Y pos of the Element
 	map[pos[0]+Addpos[0]][pos[1]+Addpos[1]] = "\u15E7";
 	map[pos[0]][pos[1]]= " ";
 }
+
+/**
+ * @brief résumé à faire (voir correc prof pour exemple)
+ * @param[in, out] FutureElement   petit résumé à faire
+ * @return (voir exemple)
+ */
 
 bool ColisionTest(string & FutureElement){
 	// Return if the element is in the wall list
@@ -44,11 +93,26 @@ bool ColisionTest(string & FutureElement){
 	else return true;
 }
 
+/**
+ * @brief résumé à faire (voir correc prof pour exemple)
+ * @param[in, out] map   petit résumé à faire
+ * @param[in, out] AddtoPos   petit résumé à faire
+ * @param[in, out] pos   petit résumé à faire
+ * @return (voir exemple)
+ */
+
 bool GoingToJump(vector<vector<string>> & map,vector<int> & AddtoPos,vector<int> & pos){
 	// Return true if the character is going to jump
 	if (pos[0]+AddtoPos[0] < 0 || pos[0]+AddtoPos[0] > MapYSize(map) || pos[1]+AddtoPos[1] < 0 || pos[1]+AddtoPos[1] > MapXSize(map)-1 ) return true;
 	else return false;
 }
+
+/**
+ * @brief résumé à faire (voir correc prof pour exemple)
+ * @param[in, out] AddPos   petit résumé à faire
+ * @param[in, out] pos   petit résumé à faire
+ * @param[in, out] map   petit résumé à faire
+ */
 
 void Jump(vector<int> & pos,vector<int> Addpos, vector<vector<string>> & map){
 	// Make the character jump
@@ -67,6 +131,12 @@ void Jump(vector<int> & pos,vector<int> Addpos, vector<vector<string>> & map){
 	}
 	map[pos[0]][pos[1]]="\u15E7";
 }
+
+/*!
+ * \brief résumé à faire (voir correc prof pour exemple)
+ * \param[in, out] pos   petit résumé à faire
+ * \param[in, out] map   petit résumé à faire
+ */
 
 void MoveCharacter (vector<int> & pos,vector<vector<string>> & map){
 	//Movement character whith z,q,s,d	
@@ -100,3 +170,5 @@ void MoveCharacter (vector<int> & pos,vector<vector<string>> & map){
 		pos[1] += Addtopos[1];
 	}
 }
+
+#endif // DEPLACEMENT_H

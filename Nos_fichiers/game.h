@@ -1,3 +1,16 @@
+#ifndef GAME_H
+#define GAME_H
+
+/*!
+ * \file game.h
+ * \brief Main file of the project
+ * \author Franck Daudet
+ * \author Nicolas Jaubert
+ * \author Valere Coroller
+ * \version 1.6
+ * \date 07/01/21
+ */
+
 #include <vector>
 #include <string>
 #include <iostream>
@@ -29,6 +42,12 @@ vector<vector<string>> kmap{
 
 
 // start the game and show map/enemies/character
+
+/*!
+ * \brief résumé à faire (voir correc prof pour exemple)
+ * \fn (voir exemple)
+ */
+
 void Launch_Game(){
     vector<int> pos {1,1};
 	while (true)
@@ -37,6 +56,11 @@ void Launch_Game(){
 		MoveCharacter(pos,kmap);
 	}
 }
+
+/*!
+ * \brief main function of the project
+ * \fn void PacMan()
+ */
 
 void PacMan()
 {
@@ -86,3 +110,4 @@ void PacMan()
             exit(0);
     }
 }
+#endif // GAME_H
