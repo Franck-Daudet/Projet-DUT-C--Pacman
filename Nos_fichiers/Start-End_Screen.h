@@ -53,6 +53,7 @@ void LoadScreen(const string& Link, const string& TheColor)
         cout << Ch;
         Color2(Kreset);
     }
+    Flow.close();
 }
 
 unsigned Start_Screen() /*Animation of the Start menu + select of the option*/
