@@ -48,10 +48,30 @@ vector<vector<string>> kmap{
  * \fn (voir exemple)
  */
 
+unsigned CountNbPacGum()
+{
+    unsigned nbpacgum(0);
+    for (int x = 0; x < kmap.size(); x++) {
+        for (int y = 0; y < kmap[x].size(); y++) {
+              if(kmap[x][y] == ".")
+                {
+                  nbpacgum = nbpacgum + 1;
+              }
+            }
+    }
+    return nbpacgum;
+}
+
+void AffichNbPacGum()
+{
+    cout << "nb PacGum réstant :" << CountNbPacGum() << endl;
+}
+
 void Launch_Game(){
     vector<int> pos {1,1};
 	while (true)
 	{
+        AffichNbPacGum();
 		ShowMap(kmap);
 		MoveCharacter(pos,kmap);
 	}
