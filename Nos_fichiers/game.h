@@ -117,7 +117,12 @@ void AffichScore()
  */
 
 void Launch_Game(){
-
+    vector<int> pos {1,1};
+    while (true)
+    {
+        ShowMap(kmap);
+        MoveCharacter(pos,kmap);
+    }
     EntryPlayerscore(Calculscore());
     Displayscore();
 }

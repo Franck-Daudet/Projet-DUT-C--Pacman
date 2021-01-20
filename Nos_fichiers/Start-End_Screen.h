@@ -55,6 +55,30 @@ void ClearScreen2() /*Clear the screen*/
 //---------------------------------------------------------------------------------------
 
 /**
+ * @brief kbhit
+ * @return
+ */
+// https://stackoverflow.com/questions/29335758/using-kbhit-and-getch-on-linux
+#include <sys/ioctl.h>
+
+bool kbhit()
+{
+    termios term;
+    tcgetattr(0, &term);
+
+    termios term2 = term;
+    term2.c_lflag &= ~ICANON;
+    tcsetattr(0, TCSANOW, &term2);
+
+    int byteswaiting;
+    ioctl(0, FIONREAD, &byteswaiting);
+
+    tcsetattr(0, TCSANOW, &term);
+
+    return byteswaiting > 0;
+}
+
+/**
  * @brief Load the file .txt and modify to incorporate colors
  * @param[in] Link   The Link of the file
  * @param[in] TheColor   The colot to incorporate
@@ -85,11 +109,9 @@ void LoadScreen(const string& Link, const string& TheColor)
  * @return 1, 2, 3, 4 depending on user input
  */
 
-unsigned FourChoices ()
+unsigned Choices (unsigned& y)
 {
-    unsigned y;
-    bool var = true;
-    while(var)
+    if(kbhit())
     {
         char x;
         x=Getch();
@@ -97,24 +119,23 @@ unsigned FourChoices ()
         {
             case '1':
                 y=1;
-                var = false;
                 break;
             case '2':
                 y=2;
-                var = false;
                 break;
             case '3':
                 y=3;
-                var = false;
                 break;
             case '4':
                 y=4;
-                var = false;
                 break;
         }
         if (x !='1' && x !='2' && x !='3' && x !='4')
+        {
             cout << "Wrong answer, you're supposed to press 1 or 2 or 3 or 4" << endl;
-    }
+            usleep(800000);
+        }
+     }
     return y;
 }
 
@@ -126,20 +147,20 @@ unsigned FourChoices ()
 unsigned Start_Screen() /*Animation of the Start menu + options choices*/
 {
     string BeginLink ="../Projet-DUT-C--Pacman/Nos_fichiers/TxtDirectory/StartSheet";
-    LoadScreen(BeginLink+".txt", Kyellow);
-    usleep(200000);
-    LoadScreen(BeginLink+"2.txt", Kyellow);
-    usleep(200000);
-    LoadScreen(BeginLink+".txt", Kyellow);
-    usleep(200000);
-    LoadScreen(BeginLink+"2.txt", Kyellow);
-    usleep(200000);
-    LoadScreen(BeginLink+".txt", Kyellow);
-    usleep(200000);
-    LoadScreen(BeginLink+"2.txt", Kyellow);
-    usleep(200000);
-    LoadScreen(BeginLink+".txt", Kyellow);
-    return FourChoices();
+    bool var = true;
+    unsigned y;
+    while(var)
+    {
+        usleep(200000);
+        LoadScreen(BeginLink+".txt", Kyellow);
+        usleep(200000);
+        LoadScreen(BeginLink+"2.txt", Kyellow);
+        Choices(y);
+        if (y == 1 || y == 2 || y == 3 || y == 4 )
+            var=false;
+    }
+
+    return y;
 
 }
 
@@ -151,19 +172,25 @@ unsigned Start_Screen() /*Animation of the Start menu + options choices*/
 unsigned End_Screen() /*Animation of the game over + options choices*/
 {
     string BeginLink ="../Projet-DUT-C--Pacman/Nos_fichiers/TxtDirectory/EndSheetsDr/EndSheet";
+    bool var = true;
+    unsigned y;
     LoadScreen(BeginLink+".txt", Kred);
     usleep(200000);
     LoadScreen(BeginLink+"2.txt", Kred);
     usleep(200000);
-    /*while(true)
+    while(var)
     {
+        Choices(y);
+        if (y == 1 || y == 2 || y == 3 || y == 4 )
+            var=false;
         for (unsigned i{3}; i <= 14; i++)
         {
+            if (y == 1 || y == 2 || y == 3 || y == 4 ) break;
             LoadScreen(BeginLink+to_string(i)+".txt", Kred);
             usleep(200000);
         }
-    }*/
-    return FourChoices();
+    }
+    return y;
 }
 
 #endif // STARTEND_SCREEN_H
