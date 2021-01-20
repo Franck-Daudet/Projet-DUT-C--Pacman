@@ -23,29 +23,28 @@ using namespace std;
 // Different map
 vector<vector<string>> kmap{
 	{"╔","═","═","═","═","═","═",".","═","═","═","═","═","═","╗"},
-	{"║","ᗧ",".",".",".",".",".",".",".",".",".",".",".",".","║"},
+    {"║","ᗧ",".",".",".",".",".","¤",".",".",".",".",".",".","║"},
 	{"║",".","╔","═",".","═","╗",".","╔","═",".","═","╗",".","║"},
 	{"║",".","║",".",".",".","║",".","║",".",".",".","║",".","║"},
 	{"║",".","║",".","║",".","║",".","║",".","║",".","║",".","║"},
-	{"║",".","║",".","║",".","║",".","║",".","║",".","║",".","║"},
+    {"║",".","║",".","║",".","║",".","║",".","║",".","║","¤","║"},
 	{"║",".","║",".",".",".","║",".","║",".",".",".","║",".","║"},
 	{"║",".","╚","═",".","═","╝",".","╚","═",".","═","╝",".","║"},
 	{".",".",".",".",".",".",".",".",".",".",".",".",".",".","."},
 	{"║",".","╔","═",".","═","╗",".","╔","═",".","═","╗",".","║"},
 	{"║",".","║",".",".",".","║",".","║",".",".",".","║",".","║"},
 	{"║",".","║",".","║",".","║",".","║",".","║",".","║",".","║"},
-	{"║",".","║",".","║",".","║",".","║",".","║",".","║",".","║"},
+    {"║",".","║",".","║",".","║","¤","║",".","║",".","║",".","║"},
 	{"║",".","║",".",".",".","║",".","║",".",".",".","║",".","║"},
 	{"║",".","╚","═",".","═","╝",".","╚","═",".","═","╝",".","║"},
 	{"║",".",".",".",".",".",".",".",".",".",".",".",".",".","║"},
 	{"╚","═","═","═","═","═","═",".","═","═","═","═","═","═","╝"}};
 
 
-// start the game and show map/enemies/character
 
-/*!
- * \brief résumé à faire (voir correc prof pour exemple)
- * \fn (voir exemple)
+/**
+ * @brief count the numbers of PacGum on the map at each refresh
+ * @return (voir exemple)
  */
 
 unsigned CountNbPacGum()
@@ -62,19 +61,65 @@ unsigned CountNbPacGum()
     return nbpacgum;
 }
 
-void AffichNbPacGum()
+unsigned NbPacGumInit(CountNbPacGum());
+
+/**
+ * @brief count the numbers of Cherry(bonus) on the map at each refresh
+ * @return (voir exemple)
+ */
+
+unsigned CountNbCherry()
 {
-    cout << "nb PacGum réstant :" << CountNbPacGum() << endl;
+    unsigned nbcherry(0);
+    for (int x = 0; x < kmap.size(); x++) {
+        for (int y = 0; y < kmap[x].size(); y++) {
+              if(kmap[x][y] == "¤")
+                {
+                  nbcherry = nbcherry + 1;
+              }
+            }
+    }
+    return nbcherry;
 }
 
+unsigned NbcherryInit(CountNbCherry());
+
+/**
+ * @brief do at each movements a calculing operation that permit to get the player's score
+ * @return (voir exemple)
+ */
+
+unsigned Calculscore()
+{
+    unsigned PlayerScore(0);
+    unsigned NbPacGumEatByPlayer(0);
+    unsigned NbCherryEatByPlayer(0);
+    NbPacGumEatByPlayer = NbPacGumInit - CountNbPacGum();
+    NbCherryEatByPlayer = NbcherryInit - CountNbCherry();
+    PlayerScore = NbPacGumEatByPlayer + NbCherryEatByPlayer*10;
+    return PlayerScore;
+}
+
+/**
+ * @brief display the player's score
+ */
+
+void AffichScore()
+{
+    cout << "Your Score :" << Calculscore() << endl;
+}
+
+// start the game and show map/enemies/character
+
+/*!
+ * \brief résumé à faire (voir correc prof pour exemple)
+ * \fn (voir exemple)
+ */
+
 void Launch_Game(){
-    vector<int> pos {1,1};
-	while (true)
-	{
-        AffichNbPacGum();
-		ShowMap(kmap);
-		MoveCharacter(pos,kmap);
-	}
+
+    EntryPlayerscore(Calculscore());
+    Displayscore();
 }
 
 /*!

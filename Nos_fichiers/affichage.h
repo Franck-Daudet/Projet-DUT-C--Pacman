@@ -15,6 +15,7 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -64,6 +65,34 @@ void Color (const string & coul){
  * \param[in, out] Map   petit résumé à faire
  * \fn (voir exemple)
  */
+void EntryPlayerscore(unsigned score)
+{
+    ofstream Scoreplayer;
+    string Playername;
+    Scoreplayer.open("PlayersScores.txt",ios::out|ios::app);
+    if(Scoreplayer)
+      {
+        cout << "wesh bg entre ton blaze " << endl;
+        cin >> Playername;
+        Scoreplayer << Playername << " : " << score << endl;
+      }
+    else
+       {
+        cout << "ça marche pas lo " << endl;
+       }
+    Scoreplayer.close();
+}
+
+void Displayscore()
+{
+   ifstream Scoreplayerdisplay("PlayersScores.txt");
+   string line;
+   while(getline(Scoreplayerdisplay, line))
+      {
+        cout << line << endl;
+      }
+
+}
 
 void ShowMap(vector<vector<string>> & map){
 	// Color map and show it

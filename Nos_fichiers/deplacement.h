@@ -93,6 +93,19 @@ bool ColisionTest(string & FutureElement){
 	else return true;
 }
 
+bool PacGumTouchTest(string & FuturElement){       //Vérifie si collision avec bonus
+    string BonusList[] = {"."};
+    if (find(begin(BonusList),end(BonusList),FuturElement) == end(BonusList)) return true;
+    else return false;
+}
+
+
+bool BonusTouchTest(string & FuturElement){       //Vérifie si collision avec bonus
+    string BonusList[] = {"¤"};
+    if (find(begin(BonusList),end(BonusList),FuturElement) == end(BonusList)) return true;
+    else return false;
+}
+
 /**
  * @brief résumé à faire (voir correc prof pour exemple)
  * @param[in, out] map   petit résumé à faire
@@ -132,6 +145,8 @@ void Jump(vector<int> & pos,vector<int> Addpos, vector<vector<string>> & map){
 	map[pos[0]][pos[1]]="\u15E7";
 }
 
+unsigned NbPacGumEaten(0);
+
 /*!
  * \brief résumé à faire (voir correc prof pour exemple)
  * \param[in, out] pos   petit résumé à faire
@@ -169,6 +184,9 @@ void MoveCharacter (vector<int> & pos,vector<vector<string>> & map){
 		pos[0] += Addtopos[0];
 		pos[1] += Addtopos[1];
 	}
+    else if (PacGumTouchTest(map[pos[0]+Addtopos[0]][pos[1]+Addtopos[1]])){
+        NbPacGumEaten = NbPacGumEaten - 1;
+    }
 }
 
 #endif // DEPLACEMENT_H
