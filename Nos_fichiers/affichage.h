@@ -15,7 +15,7 @@
 #include <vector>
 #include <string>
 #include <iostream>
-#include <fstream>
+
 
 using namespace std;
 
@@ -32,17 +32,6 @@ const string KBCyan   ("46");
 const string KBLightGrey ("47");
 const string KBYellow  ("43");
 const string Pacman  ("\u15E7");
-
-
-
-void MoveCharacter (vector<int> pos);
-
-void MoveElt (vector<vector<string>> & map,vector<int> pos,vector<int> AddPos);
-
-/**
- * @brief résumé à faire (voir correc prof pour exemple)
- * @fn (voir exemple)
- */
 
 void ClearScreen (){
 	//Clear the screen

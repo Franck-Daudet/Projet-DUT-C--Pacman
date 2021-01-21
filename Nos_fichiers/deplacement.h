@@ -1,5 +1,5 @@
-#ifndef DEPLACEMENT_H
-#define DEPLACEMENT_H
+//#ifndef DEPLACEMENT_H
+//#define DEPLACEMENT_H
 
 /*!
  * \file deplacement.h
@@ -16,14 +16,7 @@
 #include "getch.h"
 
 using namespace std;
-
 // MATRICE YX (et non XY)
-
-/**
- * @brief résumé à faire (voir correc prof pour exemple)
- * @param[in, out] map   petit résumé à faire
- * @return (voir exemple)
- */
 
 unsigned MapXSize (vector<vector<string>> & map){
 	// return X size of the map
@@ -67,16 +60,9 @@ void MoveYElt (vector<vector<string>> & map,vector<int> pos, int NewY){
 	map[pos[0]][NewY] = "\u15E7";
 }
 
-/**
- * @brief résumé à faire (voir correc prof pour exemple)
- * @param[in, out] map   petit résumé à faire
- * @param[ (à remplir) ] pos   petit résumé à faire
- * @param[ (à remplir) ] AddPos   petit résumé à faire
- */
-
-void MoveElt (vector<vector<string>> & map,vector<int> pos,vector<int> Addpos){
+void MoveElt (vector<vector<string>> & map,vector<int> pos,vector<int> Addpos, string character){
 	// Move X and Y pos of the Element
-	map[pos[0]+Addpos[0]][pos[1]+Addpos[1]] = "\u15E7";
+	map[pos[0]+Addpos[0]][pos[1]+Addpos[1]] = character;
 	map[pos[0]][pos[1]]= " ";
 }
 
@@ -145,16 +131,32 @@ void Jump(vector<int> & pos,vector<int> Addpos, vector<vector<string>> & map){
 	map[pos[0]][pos[1]]="\u15E7";
 }
 
-unsigned NbPacGumEaten(0);
+vector<vector<int>> MoveList (vector<vector<string>> & map,vector<int> pos,vector<int> oldmove ){
+    // return list of possible movement
+    vector<vector<int>> movelist;
+    if (ColisionTest(map[pos[0]-1][pos[1]]) && pos[0] != 1 && oldmove[0] != 1){
+        movelist.push_back({-1,0});}
 
-/*!
- * \brief résumé à faire (voir correc prof pour exemple)
- * \param[in, out] pos   petit résumé à faire
- * \param[in, out] map   petit résumé à faire
- */
+    else if (ColisionTest(map[pos[0]][pos[1]-1]) && pos[1] != 1 && oldmove[1] != 1){
+        movelist.push_back({0,-1});}
 
-void MoveCharacter (vector<int> & pos,vector<vector<string>> & map){
-	//Movement character whith z,q,s,d	
+    else if (ColisionTest(map[pos[0]+1][pos[1]]) && pos[0] != MapYSize(map)-1 && oldmove[0] != -1){
+		cout << "3";
+        movelist.push_back({1,0});}
+
+    else if (ColisionTest(map[pos[0]][pos[1]+1]) && pos[1] != MapXSize(map)-2 && oldmove[1] != -1) {
+		cout << "4";
+        movelist.push_back({0,1});}
+
+    return movelist;
+}
+
+vector<int> NextPhantomMove (vector<vector<string>> & map,vector<int> pos,vector<int> oldmove){
+    vector<vector<int>> movelist = MoveList (map, pos, oldmove);
+    return movelist[rand()% movelist.size()];
+}
+
+vector<int> InputToChar(){
 	char x;
 	x=getch();
 	vector<int> Addtopos ;
@@ -176,17 +178,30 @@ void MoveCharacter (vector<int> & pos,vector<vector<string>> & map){
 			Addtopos = {0,1};
 			break;
 	}
+	return Addtopos;
+}
+
+void MoveCharacter (vector<int> & pos,vector<vector<string>> & map,vector<int> Addtopos,string character){
+	if (ColisionTest(map[pos[0]+Addtopos[0]][pos[1]+Addtopos[1]])){
+		MoveElt(map,pos,Addtopos,character);
+		pos[0] += Addtopos[0];
+		pos[1] += Addtopos[1];
+	}
+
+}
+
+void MovePacman (vector<int> & pos,vector<vector<string>> & map){
+	//Movement character whith z,q,s,d	
+	vector<int> Addtopos = InputToChar();
 	if (GoingToJump(map,pos,Addtopos)){
 		Jump(pos,Addtopos,map);
 	}
 	else if (ColisionTest(map[pos[0]+Addtopos[0]][pos[1]+Addtopos[1]])){
-		MoveElt(map,pos,Addtopos);
+		MoveElt(map,pos,Addtopos,"\u15E7");
 		pos[0] += Addtopos[0];
 		pos[1] += Addtopos[1];
 	}
     else if (PacGumTouchTest(map[pos[0]+Addtopos[0]][pos[1]+Addtopos[1]])){
-        NbPacGumEaten = NbPacGumEaten - 1;
+        //NbPacGumEaten = NbPacGumEaten - 1;
     }
 }
-
-#endif // DEPLACEMENT_H
