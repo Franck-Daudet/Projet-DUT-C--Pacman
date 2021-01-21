@@ -15,6 +15,7 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <fstream>
 
 
 using namespace std;
@@ -62,9 +63,16 @@ void EntryPlayerscore(unsigned score)
     Scoreplayer.open("PlayersScores.txt",ios::out|ios::app);
     if(Scoreplayer)
       {
-        cout << "wesh bg entre ton blaze " << endl;
+        cout << "Entry you username" << endl;
         cin >> Playername;
-        Scoreplayer << Playername << " : " << score << endl;
+        if (Playername.size() > 15)
+          {
+            EntryPlayerscore(score);
+           }
+        else
+          {
+            Scoreplayer << Playername << " " << score << endl;
+          }
       }
     else
        {
