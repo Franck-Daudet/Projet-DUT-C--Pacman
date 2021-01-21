@@ -21,6 +21,7 @@
 #include <fstream>
 #include "affichage.h"
 #include "game.h"
+#include <iomanip>
 
 using namespace std;
 
@@ -51,7 +52,7 @@ void SortDisplay()
     std::sort(v.begin(), v.end(), [](std::string s1, std::string s2) -> bool { return get_rank(s1) > get_rank(s2); });
     string c;
     for(unsigned i = 0;i < nbligne;i++)
-        cout << v[i].substr(v[i].find(",") + 1) << endl;
+        cout  << setw(45) << v[i].substr(v[i].find(",") + 1) << setw(45) << endl;
     cout << endl << "Press 4 if you want to leave" << endl;
     bool Var = true;
     while(Var)
