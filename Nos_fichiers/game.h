@@ -20,25 +20,26 @@ using namespace std;
 #include "deplacement.h"
 #include "affichage.h"
 
+
 // Different map
 vector<vector<string>> kmap{
-	{"╔","═","═","═","═","═","═",".","═","═","═","═","═","═","╗"},
-    {"║","ᗧ",".",".",".",".",".","¤",".",".",".",".",".",".","║"},
-	{"║",".","╔","═",".","═","╗",".","╔","═",".","═","╗",".","║"},
-	{"║",".","║",".",".",".","║",".","║",".",".",".","║",".","║"},
-	{"║",".","║",".","║",".","║",".","║",".","║",".","║",".","║"},
-    {"║",".","║",".","║",".","║",".","║",".","║",".","║","¤","║"},
-	{"║",".","║",".",".",".","║",".","║",".",".",".","║",".","║"},
-	{"║",".","╚","═",".","═","╝",".","╚","═",".","═","╝",".","║"},
+	{"╔","═","═",".",".","═","═",".","═",".","═","═",".","═","╗"},
+	{".","ᗧ",".",".",".",".",".",".",".",".",".",".",".",".","."},
+	{".",".","╔","═",".","═","╗",".","╔","═",".","═","╗",".","."},
+	{".",".",".",".",".",".","║",".","║",".",".",".","║",".","."},
+	{".",".","║",".","║",".","║",".","║",".","║",".","║",".","║"},
+	{".",".","║",".","║",".","║",".","║",".","║",".","║",".","."},
+	{".",".","║",".",".",".","║",".","║",".",".",".","║",".","."},
+	{".",".","╚",".",".","═","╝",".","╚","═",".","═","╝",".","║"},
 	{".",".",".",".",".",".",".",".",".",".",".",".",".",".","."},
 	{"║",".","╔","═",".","═","╗",".","╔","═",".","═","╗",".","║"},
 	{"║",".","║",".",".",".","║",".","║",".",".",".","║",".","║"},
 	{"║",".","║",".","║",".","║",".","║",".","║",".","║",".","║"},
-    {"║",".","║",".","║",".","║","¤","║",".","║",".","║",".","║"},
+	{"║",".","║",".","║",".","║",".","║",".","║",".","║",".","."},
 	{"║",".","║",".",".",".","║",".","║",".",".",".","║",".","║"},
-	{"║",".","╚","═",".","═","╝",".","╚","═",".","═","╝",".","║"},
-	{"║",".",".",".",".",".",".",".",".",".",".",".",".",".","║"},
-	{"╚","═","═","═","═","═","═",".","═","═","═","═","═","═","╝"}};
+	{"║",".","╚","═",".","═","╝",".","╚","═",".","═","╝",".","."},
+	{"║",".",".",".",".",".",".",".",".",".",".",".",".",".","."},
+	{"╚","═",".","═",".","═","═",".",".","═",".",".",".","═","╝"}};
 
 
 
@@ -117,67 +118,82 @@ void AffichScore()
  */
 
 void Launch_Game(){
+
     vector<int> pos {1,1};
-    while (true)
-    {
-        ShowMap(kmap);
-        MoveCharacter(pos,kmap);
-    }
+
+	vector<int> posf1 {1,2};
+    vector<int> oldposf1 {0,0};
+	vector<int> posf2 {1,3};
+    vector<int> oldposf2 {0,0};
+
+	ShowMap(kmap);
+
+	while (true){
+		MovePacman(pos,kmap);
+        if (pos == posf1 || pos == posf2) cout << "fantom tué";
+        oldposf1 = NextPhantomMove(kmap,posf1,oldposf1);
+        oldposf2 = NextPhantomMove(kmap,posf2,oldposf2);
+		MoveCharacter(posf1,kmap,oldposf1,"@");
+		MoveCharacter(posf2,kmap,oldposf2,"@");
+		ShowMap(kmap);
+		if (pos == posf1 || pos == posf2)
+			cout << "t mor";
+	}
     EntryPlayerscore(Calculscore());
     Displayscore();
 }
 
-/*!
- * \brief main function of the project
- * \fn void PacMan()
- */
+/*! 
+ * \brief main function of the project 
+ * \fn void PacMan() 
+ */ 
 
-void PacMan()
-{
-    while(true)
-    {
-        unsigned u = Start_Screen();
-        if (u==1)
-        {
-            Launch_Game();
-            while(true)
-            {
-                unsigned v = End_Screen();
-                if (v==1)
-                {
-                    Launch_Game();
-                    continue;
-                }
-                else if (v==2)
-                {
-                    cout<<"W.I.P"<<endl;
-                    sleep(1);
-                    continue;
-                }
-                else if (v==3)
-                {
-                    cout<<"W.I.P"<<endl;
-                    sleep(1);
-                    continue;
-                }
-                else if (v==4)
-                    exit(0);
-            }
-        }
-        else if (u==2)
-        {
-            cout<<"W.I.P"<<endl;
-            sleep(1);
-            continue;
-        }
-        else if (u==3)
-        {
-            cout<<"W.I.P"<<endl;
-            sleep(1);
-            continue;
-        }
-        else if (u==4)
-            exit(0);
-    }
-}
-#endif // GAME_H
+void PacMan() 
+{ 
+    while(true) 
+    { 
+        unsigned u = Start_Screen(); 
+        if (u==1) 
+        { 
+            Launch_Game(); 
+            while(true) 
+            { 
+                unsigned v = End_Screen(); 
+                if (v==1) 
+                { 
+                    Launch_Game(); 
+                    continue; 
+                } 
+                else if (v==2) 
+                { 
+                    cout<<"W.I.P"<<endl; 
+                    sleep(1); 
+                    continue; 
+                } 
+                else if (v==3) 
+                { 
+                    cout<<"W.I.P"<<endl; 
+                    sleep(1); 
+                    continue; 
+                } 
+                else if (v==4) 
+                    exit(0); 
+            } 
+        } 
+        else if (u==2) 
+        { 
+            cout<<"W.I.P"<<endl; 
+            sleep(1); 
+            continue; 
+        } 
+        else if (u==3) 
+        { 
+            cout<<"W.I.P"<<endl; 
+            sleep(1); 
+            continue; 
+        } 
+        else if (u==4) 
+            exit(0); 
+    } 
+} 
+#endif // GAME_H 
