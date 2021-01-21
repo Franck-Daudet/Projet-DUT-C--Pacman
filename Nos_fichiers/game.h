@@ -131,9 +131,12 @@ void Launch_Game(){
     string ElementOnF2 (" ");
     string ElementOnF3 (" ");
 	ShowMap(kmap);
+    string EatByPacman = " ";
+    bool Pasmort = true;
+    
 
-	while (true){
-		MovePacman(pos,kmap);
+	while (Pasmort){
+		EatByPacman = MovePacman(pos,kmap);
         oldposf1 = NextPhantomMove(kmap,posf1,oldposf1);
         oldposf2 = NextPhantomMove(kmap,posf2,oldposf2);
         oldposf3 = NextPhantomMove(kmap,posf3,oldposf3);
@@ -161,10 +164,12 @@ void Launch_Game(){
         else if (ElementOnF3 == "$"){
             ElementOnF3 = ElementOnF2;
         }
-        usleep(100000);
+
+
 		ShowMap(kmap);
-		if (pos == posf1 || pos == posf2)
-			cout << "t mor";
+		if (pos == posf1 || pos == posf2 || pos == posf3) Pasmort = false;
+
+        usleep(400000 );
 	}
 }
 

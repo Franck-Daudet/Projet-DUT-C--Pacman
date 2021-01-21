@@ -114,8 +114,9 @@ bool GoingToJump(vector<vector<string>> & map,vector<int> & AddtoPos,vector<int>
  * @param[in, out] map   petit résumé à faire
  */
 
-void Jump(vector<int> & pos,vector<int> Addpos, vector<vector<string>> & map){
+string Jump(vector<int> & pos,vector<int> Addpos, vector<vector<string>> & map){
 	// Make the character jump
+	string FutureChar;
 	map[pos[0]][pos[1]]= " ";
 	if (pos[0] == 0 && Addpos[0] == -1){
 		pos[0] = MapYSize(map);
@@ -129,7 +130,10 @@ void Jump(vector<int> & pos,vector<int> Addpos, vector<vector<string>> & map){
 	else if (pos[1] == MapXSize(map)-1 && Addpos[1] == 1){
 		pos[1] = 0;
 	}
+	FutureChar = map[pos[0]][pos[1]];
 	map[pos[0]][pos[1]]="\u15E7";
+
+	return FutureChar;
 }
 
 vector<vector<int>> MoveList (vector<vector<string>> & map,vector<int> pos,vector<int> oldmove ){
@@ -158,8 +162,7 @@ vector<vector<int>> MoveList (vector<vector<string>> & map,vector<int> pos,vecto
 
 vector<int> NextPhantomMove (vector<vector<string>> & map,vector<int> pos,vector<int> oldmove){
     vector<vector<int>> movelist = MoveList (map, pos, oldmove);
-	vector<int> movelist2 =movelist[rand()% movelist.size()];
-    return movelist2;
+    return movelist[rand()% movelist.size()];
 }
 
 vector<int> InputToChar(){
@@ -196,18 +199,20 @@ string MoveCharacter (vector<int> & pos,vector<vector<string>> & map,vector<int>
 	return stringsiton;
 }
 
-void MovePacman (vector<int> & pos,vector<vector<string>> & map){
+string MovePacman (vector<int> & pos,vector<vector<string>> & map){
 	//Movement character whith z,q,s,d	
 	vector<int> Addtopos = InputToChar();
+	string EatByPacman;
 	if (GoingToJump(map,pos,Addtopos)){
 		Jump(pos,Addtopos,map);
 	}
 	else if (ColisionTest(map[pos[0]+Addtopos[0]][pos[1]+Addtopos[1]])){
-		MoveElt(map,pos,Addtopos,"\u15E7"," ");
+		EatByPacman = MoveElt(map,pos,Addtopos,"\u15E7"," ");
 		pos[0] += Addtopos[0];
 		pos[1] += Addtopos[1];
 	}
     else if (PacGumTouchTest(map[pos[0]+Addtopos[0]][pos[1]+Addtopos[1]])){
         //NbPacGumEaten = NbPacGumEaten - 1;
     }
+	return EatByPacman;
 }
