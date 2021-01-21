@@ -8,6 +8,7 @@
  * \author Nicolas Jaubert
  * \author Valere Coroller
  * \author Justin De Sio
+ * \author Enzo Vargas
  * \version 1.3
  * \date 07/01/21
  */
@@ -15,7 +16,7 @@
 #include <vector>
 #include <string>
 #include <iostream>
-
+#include <fstream>
 
 using namespace std;
 
@@ -61,13 +62,13 @@ void EntryPlayerscore(unsigned score)
     Scoreplayer.open("PlayersScores.txt",ios::out|ios::app);
     if(Scoreplayer)
       {
-        cout << "wesh bg entre ton blaze " << endl;
+        cout << "wesh bg entre ton blaze :" << endl;
         cin >> Playername;
-        Scoreplayer << Playername << " : " << score << endl;
+        Scoreplayer << Playername << score << endl;
       }
     else
        {
-        cout << "ça marche pas lo " << endl;
+        cout << "ça marche pas" << endl;
        }
     Scoreplayer.close();
 }
