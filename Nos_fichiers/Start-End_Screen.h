@@ -3,9 +3,9 @@
 
 /*!
  * \file Start-End_Screen.h
- * \brief Show Home Screen and Game Over
+ * \brief Show Home Screen and Game Over + Credit
  * \author Nicolas Jaubert
- * \version 1.7.5
+ * \version 1.8
  * \date 08/01/21
  */
 
@@ -21,7 +21,7 @@
 
 using namespace std;
 
-//Faut fixer ça par contre mais je sais pas vraiment comment faire
+//Faut fixer quand y aura les .cpp
 //---------------------------------------------------------------------------------------
 
 const string Kreset   ("0");
@@ -54,13 +54,13 @@ void ClearScreen2() /*Clear the screen*/
 
 //---------------------------------------------------------------------------------------
 
+//A mettre dans le getch.h
+// https://stackoverflow.com/questions/29335758/using-kbhit-and-getch-on-linux
+#include <sys/ioctl.h>
 /**
  * @brief kbhit
  * @return
  */
-// https://stackoverflow.com/questions/29335758/using-kbhit-and-getch-on-linux
-#include <sys/ioctl.h>
-
 bool kbhit()
 {
     termios term;
@@ -188,7 +188,11 @@ unsigned End_Screen() /*Animation of the game over + options choices*/
             var=false;
         for (unsigned i{3}; i <= 14; i++)
         {
-            if (y == 1 || y == 2 || y == 3 || y == 4 || y == 5) break;
+            if (y == 1 || y == 2 || y == 3 || y == 4 || y == 5) //If a choice has been made, stop the animation
+            {
+                i=15;
+                continue;
+            }
             LoadScreen(BeginLink+to_string(i)+".txt", Kred);
             usleep(200000);
         }
@@ -197,21 +201,29 @@ unsigned End_Screen() /*Animation of the game over + options choices*/
 }
 void Credit()
 {
-    ClearScreen2();
-    ifstream Flow ("../Projet-DUT-C--Pacman/Nos_fichiers/TxtDirectory/credit.txt");
-    string line;
-    while(getline(Flow, line))
-        cout << line << endl;
-    char input;
+
     bool Var = true;
     while(Var)
     {
-        cin >> input;
-        if (input=='4')
-            Var=false;
-        else
-            cout << "Wrong input" << endl;
+        ClearScreen2();
+        ifstream Flow ("../Projet-DUT-C--Pacman/Nos_fichiers/TxtDirectory/credit.txt");
+        string line;
+        while(getline(Flow, line))
+            cout << line << endl;
+        char input=Getch();
+        switch (input)
+        {
+            case '4':
+                Var=false;
+                break;
+        }
+        if (input != '4')
+        {
+            cout << "Wrong input, you're supposed to press 4" << endl;
+            usleep(800000);
+        }
+        Flow.close();
     }
-    Flow.close();
+
 }
 #endif // STARTEND_SCREEN_H

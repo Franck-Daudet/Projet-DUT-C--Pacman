@@ -38,32 +38,41 @@ int get_rank(std::string input) {
 
 void SortDisplay()
 {
-    ClearScreen();
-    std::ifstream infile("../Projet-DUT-C--Pacman/Nos_fichiers/TxtDirectory/PlayersScores.txt");
-    unsigned nbligne(0);
-    std::vector<std::string> v;
-    std::string line;
-    std::getline(infile, line);
-    for( ; getline( infile, line ); )
-      {
-        nbligne = nbligne + 1;
-        v.push_back(line);
-      }
-    std::sort(v.begin(), v.end(), [](std::string s1, std::string s2) -> bool { return get_rank(s1) > get_rank(s2); });
-    string c;
-    for(unsigned i = 0;i < nbligne;i++)
-        cout  << setw(45) << v[i].substr(v[i].find(",") + 1) << setw(45) << endl;
-    cout << endl << "Press 4 if you want to leave" << endl;
     bool Var = true;
     while(Var)
     {
-        cin >> c;
-        if (c=="4")
-            Var=false;
-        else
-            cout << "Wrong input" << endl;
+        ClearScreen();
+        std::ifstream infile("../Projet-DUT-C--Pacman/Nos_fichiers/TxtDirectory/PlayersScores.txt");
+        unsigned nbligne(0);
+        std::vector<std::string> v;
+        std::string line;
+        std::getline(infile, line);
+        for( ; getline( infile, line ); )
+          {
+            nbligne = nbligne + 1;
+            v.push_back(line);
+          }
+        std::sort(v.begin(), v.end(), [](std::string s1, std::string s2) -> bool { return get_rank(s1) > get_rank(s2); });
+        string c;
+        for(unsigned i = 0;i < nbligne;i++)
+            cout  << setw(45) << v[i].substr(v[i].find(",") + 1) << endl;
+        cout << endl << "Press 4 if you want to leave" << endl;
+
+        char input=Getch();
+        switch (input)
+        {
+            case '4':
+                Var=false;
+                break;
+        }
+        if (input != '4')
+        {
+            cout << "Wrong input, you're supposed to press 4" << endl;
+            usleep(800000);
+        }
+        infile.close();
     }
-    infile.close();
+
 }
 
 #endif // TRICLASSEMENT_H
