@@ -120,21 +120,48 @@ void AffichScore()
 void Launch_Game(){
 
     vector<int> pos {1,1};
-
 	vector<int> posf1 {1,2};
     vector<int> oldposf1 {0,0};
-	vector<int> posf2 {1,3};
+	vector<int> posf2 {3,7};
     vector<int> oldposf2 {0,0};
+    vector<int> posf3 {2,4};
+    vector<int> oldposf3 {0,0};
 
+    string ElementOnF1 (" ");
+    string ElementOnF2 (" ");
+    string ElementOnF3 (" ");
 	ShowMap(kmap);
 
 	while (true){
 		MovePacman(pos,kmap);
-        if (pos == posf1 || pos == posf2) cout << "fantom tué";
         oldposf1 = NextPhantomMove(kmap,posf1,oldposf1);
         oldposf2 = NextPhantomMove(kmap,posf2,oldposf2);
-		MoveCharacter(posf1,kmap,oldposf1,"@");
-		MoveCharacter(posf2,kmap,oldposf2,"@");
+        oldposf3 = NextPhantomMove(kmap,posf3,oldposf3);
+
+		
+        ElementOnF1 = MoveCharacter(posf1,kmap,oldposf1,"@",ElementOnF1);
+        ElementOnF2 = MoveCharacter(posf2,kmap,oldposf2,"$",ElementOnF2);
+        ElementOnF3 = MoveCharacter(posf3,kmap,oldposf3,"£",ElementOnF3);
+
+        if (ElementOnF1 == "$"){
+            ElementOnF1 = ElementOnF2;
+        }
+        else if (ElementOnF1 == "£"){
+            ElementOnF1 = ElementOnF3;
+        }
+        if (ElementOnF2 == "@"){
+            ElementOnF2 = ElementOnF1;
+        }
+        else if (ElementOnF2 == "£"){
+            ElementOnF2 = ElementOnF3;
+        }
+        if (ElementOnF3 == "@"){
+            ElementOnF3 = ElementOnF1;
+        }
+        else if (ElementOnF3 == "$"){
+            ElementOnF3 = ElementOnF2;
+        }
+        usleep(100000);
 		ShowMap(kmap);
 		if (pos == posf1 || pos == posf2)
 			cout << "t mor";

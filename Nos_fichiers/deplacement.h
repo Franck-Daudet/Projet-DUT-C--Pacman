@@ -60,10 +60,12 @@ void MoveYElt (vector<vector<string>> & map,vector<int> pos, int NewY){
 	map[pos[0]][NewY] = "\u15E7";
 }
 
-void MoveElt (vector<vector<string>> & map,vector<int> pos,vector<int> Addpos, string character){
+string MoveElt (vector<vector<string>> & map,vector<int> pos,vector<int> Addpos, string character,string stringsiton){
 	// Move X and Y pos of the Element
+	map[pos[0]][pos[1]]= stringsiton;
+	stringsiton = map[pos[0]+Addpos[0]][pos[1]+Addpos[1]];
 	map[pos[0]+Addpos[0]][pos[1]+Addpos[1]] = character;
-	map[pos[0]][pos[1]]= " ";
+	return stringsiton;
 }
 
 /**
@@ -84,7 +86,6 @@ bool PacGumTouchTest(string & FuturElement){       //Vérifie si collision avec 
     if (find(begin(BonusList),end(BonusList),FuturElement) == end(BonusList)) return true;
     else return false;
 }
-
 
 bool BonusTouchTest(string & FuturElement){       //Vérifie si collision avec bonus
     string BonusList[] = {"¤"};
@@ -134,26 +135,31 @@ void Jump(vector<int> & pos,vector<int> Addpos, vector<vector<string>> & map){
 vector<vector<int>> MoveList (vector<vector<string>> & map,vector<int> pos,vector<int> oldmove ){
     // return list of possible movement
     vector<vector<int>> movelist;
+	bool test = false;
     if (ColisionTest(map[pos[0]-1][pos[1]]) && pos[0] != 1 && oldmove[0] != 1){
-        movelist.push_back({-1,0});}
+        movelist.push_back({-1,0});
+		test = true;}
 
-    else if (ColisionTest(map[pos[0]][pos[1]-1]) && pos[1] != 1 && oldmove[1] != 1){
-        movelist.push_back({0,-1});}
+    if (ColisionTest(map[pos[0]][pos[1]-1]) && pos[1] != 1 && oldmove[1] != 1){
+        movelist.push_back({0,-1});
+		test = true;}
 
-    else if (ColisionTest(map[pos[0]+1][pos[1]]) && pos[0] != MapYSize(map)-1 && oldmove[0] != -1){
-		cout << "3";
-        movelist.push_back({1,0});}
+    if (ColisionTest(map[pos[0]+1][pos[1]]) && pos[0] != MapYSize(map)-1 && oldmove[0] != -1){
+        movelist.push_back({1,0});
+		test = true;}
 
-    else if (ColisionTest(map[pos[0]][pos[1]+1]) && pos[1] != MapXSize(map)-2 && oldmove[1] != -1) {
-		cout << "4";
-        movelist.push_back({0,1});}
-
+    if (ColisionTest(map[pos[0]][pos[1]+1]) && pos[1] != MapXSize(map)-2 && oldmove[1] != -1) {
+        movelist.push_back({0,1});
+		test = true;}
+	//If the pacman can move he will have the right to move back
+	
     return movelist;
 }
 
 vector<int> NextPhantomMove (vector<vector<string>> & map,vector<int> pos,vector<int> oldmove){
     vector<vector<int>> movelist = MoveList (map, pos, oldmove);
-    return movelist[rand()% movelist.size()];
+	vector<int> movelist2 =movelist[rand()% movelist.size()];
+    return movelist2;
 }
 
 vector<int> InputToChar(){
@@ -181,13 +187,13 @@ vector<int> InputToChar(){
 	return Addtopos;
 }
 
-void MoveCharacter (vector<int> & pos,vector<vector<string>> & map,vector<int> Addtopos,string character){
+string MoveCharacter (vector<int> & pos,vector<vector<string>> & map,vector<int> Addtopos,string character,string stringsiton){
 	if (ColisionTest(map[pos[0]+Addtopos[0]][pos[1]+Addtopos[1]])){
-		MoveElt(map,pos,Addtopos,character);
+		stringsiton = MoveElt(map,pos,Addtopos,character,stringsiton);
 		pos[0] += Addtopos[0];
 		pos[1] += Addtopos[1];
 	}
-
+	return stringsiton;
 }
 
 void MovePacman (vector<int> & pos,vector<vector<string>> & map){
@@ -197,7 +203,7 @@ void MovePacman (vector<int> & pos,vector<vector<string>> & map){
 		Jump(pos,Addtopos,map);
 	}
 	else if (ColisionTest(map[pos[0]+Addtopos[0]][pos[1]+Addtopos[1]])){
-		MoveElt(map,pos,Addtopos,"\u15E7");
+		MoveElt(map,pos,Addtopos,"\u15E7"," ");
 		pos[0] += Addtopos[0];
 		pos[1] += Addtopos[1];
 	}

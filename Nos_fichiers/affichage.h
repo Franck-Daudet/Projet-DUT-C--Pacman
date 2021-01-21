@@ -8,7 +8,6 @@
  * \author Nicolas Jaubert
  * \author Valere Coroller
  * \author Justin De Sio
- * \author Enzo Vargas
  * \version 1.3
  * \date 07/01/21
  */
@@ -16,7 +15,7 @@
 #include <vector>
 #include <string>
 #include <iostream>
-#include <fstream>
+
 
 using namespace std;
 
@@ -32,6 +31,7 @@ const string KLightGrey ("37");
 const string KBCyan   ("46");
 const string KBLightGrey ("47");
 const string KBYellow  ("43");
+const string KBBlue    ("44");
 const string Pacman  ("\u15E7");
 
 void ClearScreen (){
@@ -62,13 +62,13 @@ void EntryPlayerscore(unsigned score)
     Scoreplayer.open("PlayersScores.txt",ios::out|ios::app);
     if(Scoreplayer)
       {
-        cout << "wesh bg entre ton blaze :" << endl;
+        cout << "wesh bg entre ton blaze " << endl;
         cin >> Playername;
-        Scoreplayer << Playername << score << endl;
+        Scoreplayer << Playername << " : " << score << endl;
       }
     else
        {
-        cout << "ça marche pas" << endl;
+        cout << "ça marche pas lo " << endl;
        }
     Scoreplayer.close();
 }
@@ -87,16 +87,24 @@ void Displayscore()
 void ShowMap(vector<vector<string>> & map){
 	// Color map and show it
 	ClearScreen ();
-	Color(KBCyan);
-    Color(KBlack);
+	Color(KBBlue);
+  Color(KBlack);
 	for (int x = 0; x < map.size(); x++) {
 		for (int y = 0; y < map[x].size(); y++) {
 			if ( map[x][y] == Pacman){
-                Color(KYellow);
-				cout << map[x][y] ;
-                Color(KBlack);
-			}
-			else cout << map[x][y] ;
+        Color(KYellow);}
+      else if ( map[x][y] == "@"){
+        Color(KRed);} 
+      else if ( map[x][y] == "$"){
+        Color(KRed);}
+      else if ( map[x][y] == "£"){
+        Color(KRed);}
+      else if ( map[x][y] == "."){
+        Color(KLightGrey);}
+      
+      cout << map[x][y];
+      Color(KBlack);
+      
 		}
 		cout << endl;
 	}
