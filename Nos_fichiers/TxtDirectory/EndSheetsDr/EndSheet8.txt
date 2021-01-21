@@ -20,4 +20,4 @@
  | |__| |  / ____ \  | |  | | | |____    | |__| |    \  /    | |____  | | \ \ 
   \_____| /_/    \_\ |_|  |_| |______|    \____/      \/     |______| |_|  \_\
 	  		 
-      1. Play      2. Classment     3. Settings     4. Exit     5.Credit
+      1. Play      2. Ranking      3. Settings      4. Exit      5.Credit
