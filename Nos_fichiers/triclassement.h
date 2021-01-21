@@ -19,6 +19,8 @@
 #include <algorithm>
 #include <sstream>
 #include <fstream>
+#include "affichage.h"
+#include "game.h"
 
 using namespace std;
 
@@ -29,9 +31,13 @@ int get_rank(std::string input) {
     return std::atoi(s.c_str());
 }
 
+/**
+ * @brief Sort the player's score
+ */
+
 void SortDisplay()
 {
-    std::ifstream infile("../Projet-DUT-C--Pacman/Nos_fichiers/TxtDirectory/PlayersScores.txt");
+    std::ifstream infile("PlayersScores.txt");
     unsigned nbligne(0);
     std::vector<std::string> v;
     std::string line;
@@ -42,8 +48,16 @@ void SortDisplay()
         v.push_back(line);
       }
     std::sort(v.begin(), v.end(), [](std::string s1, std::string s2) -> bool { return get_rank(s1) > get_rank(s2); });
+    string c;
+    ClearScreen();
     for(unsigned i = 0;i < nbligne;i++)
         cout << v[i].substr(v[i].find(",") + 1) << endl;
+    cout << "Press Q if you want to leave" << endl;
+    cin >> c;
+    if(c == "Q")
+    {
+       PacMan();
+    }
 }
 
 #endif // TRICLASSEMENT_H
