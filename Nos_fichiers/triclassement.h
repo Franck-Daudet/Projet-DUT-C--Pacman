@@ -37,7 +37,8 @@ int get_rank(std::string input) {
 
 void SortDisplay()
 {
-    std::ifstream infile("PlayersScores.txt");
+    ClearScreen();
+    std::ifstream infile("../Projet-DUT-C--Pacman/Nos_fichiers/TxtDirectory/PlayersScores.txt");
     unsigned nbligne(0);
     std::vector<std::string> v;
     std::string line;
@@ -49,15 +50,19 @@ void SortDisplay()
       }
     std::sort(v.begin(), v.end(), [](std::string s1, std::string s2) -> bool { return get_rank(s1) > get_rank(s2); });
     string c;
-    ClearScreen();
     for(unsigned i = 0;i < nbligne;i++)
         cout << v[i].substr(v[i].find(",") + 1) << endl;
-    cout << "Press Q if you want to leave" << endl;
-    cin >> c;
-    if(c == "Q")
+    cout << endl << "Press 4 if you want to leave" << endl;
+    bool Var = true;
+    while(Var)
     {
-       PacMan();
+        cin >> c;
+        if (c=="4")
+            Var=false;
+        else
+            cout << "Wrong input" << endl;
     }
+    infile.close();
 }
 
 #endif // TRICLASSEMENT_H

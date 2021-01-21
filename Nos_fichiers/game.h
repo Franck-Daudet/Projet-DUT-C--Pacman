@@ -166,8 +166,6 @@ void Launch_Game(){
 		if (pos == posf1 || pos == posf2)
 			cout << "t mor";
 	}
-    EntryPlayerscore(Calculscore());
-    Displayscore();
 }
 
 /*! 
@@ -182,13 +180,17 @@ void PacMan()
         unsigned u = Start_Screen(); 
         if (u==1) 
         { 
-            Launch_Game(); 
+            Launch_Game();
+            EntryPlayerscore(Calculscore());
+            Displayscore();
             while(true) 
             { 
                 unsigned v = End_Screen(); 
                 if (v==1) 
                 { 
-                    Launch_Game(); 
+                    Launch_Game();
+                    EntryPlayerscore(Calculscore());
+                    Displayscore();
                     continue; 
                 } 
                 else if (v==2) 
@@ -202,11 +204,17 @@ void PacMan()
                     continue; 
                 } 
                 else if (v==4) 
-                    exit(0); 
+                    exit(0);
+                else if (v==5)
+                {
+                    Credit();
+                    continue;
+                }
+
             } 
         } 
         else if (u==2) 
-        { 
+        {
             SortDisplay();
             continue; 
         } 
@@ -217,6 +225,12 @@ void PacMan()
         } 
         else if (u==4) 
             exit(0); 
+        else if (u==5)
+        {
+            Credit();
+            continue;
+        }
+
     } 
 } 
 #endif // GAME_H 

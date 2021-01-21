@@ -129,10 +129,13 @@ unsigned Choices (unsigned& y)
             case '4':
                 y=4;
                 break;
+            case '5':
+                y=5;
+                break;
         }
-        if (x !='1' && x !='2' && x !='3' && x !='4')
+        if (x !='1' && x !='2' && x !='3' && x !='4' && x!= '5')
         {
-            cout << "Wrong answer, you're supposed to press 1 or 2 or 3 or 4" << endl;
+            cout << "Wrong answer, you're supposed to press 1 or 2 or 3 or 4 or 5" << endl;
             usleep(800000);
         }
      }
@@ -156,7 +159,7 @@ unsigned Start_Screen() /*Animation of the Start menu + options choices*/
         usleep(200000);
         LoadScreen(BeginLink+"2.txt", Kyellow);
         Choices(y);
-        if (y == 1 || y == 2 || y == 3 || y == 4 )
+        if (y == 1 || y == 2 || y == 3 || y == 4 || y == 5)
             var=false;
     }
 
@@ -181,16 +184,34 @@ unsigned End_Screen() /*Animation of the game over + options choices*/
     while(var)
     {
         Choices(y);
-        if (y == 1 || y == 2 || y == 3 || y == 4 )
+        if (y == 1 || y == 2 || y == 3 || y == 4 || y == 5)
             var=false;
         for (unsigned i{3}; i <= 14; i++)
         {
-            if (y == 1 || y == 2 || y == 3 || y == 4 ) break;
+            if (y == 1 || y == 2 || y == 3 || y == 4 || y == 5) break;
             LoadScreen(BeginLink+to_string(i)+".txt", Kred);
             usleep(200000);
         }
     }
     return y;
 }
-
+void Credit()
+{
+    ClearScreen2();
+    ifstream Flow ("../Projet-DUT-C--Pacman/Nos_fichiers/TxtDirectory/credit.txt");
+    string line;
+    while(getline(Flow, line))
+        cout << line << endl;
+    char input;
+    bool Var = true;
+    while(Var)
+    {
+        cin >> input;
+        if (input=='4')
+            Var=false;
+        else
+            cout << "Wrong input" << endl;
+    }
+    Flow.close();
+}
 #endif // STARTEND_SCREEN_H
