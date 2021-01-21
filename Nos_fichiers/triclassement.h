@@ -31,7 +31,7 @@ int get_rank(std::string input) {
 
 void SortDisplay()
 {
-    std::ifstream infile("PlayersScores.txt");
+    std::ifstream infile("../Projet-DUT-C--Pacman/Nos_fichiers/TxtDirectory/PlayersScores.txt");
     unsigned nbligne(0);
     std::vector<std::string> v;
     std::string line;

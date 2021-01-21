@@ -19,8 +19,8 @@ using namespace std;
 #include "Start-End_Screen.h"
 #include "deplacement.h"
 #include "affichage.h"
-
-
+#include "settings.h"
+#include "triclassement.h"
 // Different map
 vector<vector<string>> kmap{
 	{"╔","═","═",".",".","═","═",".","═",".","═","═",".","═","╗"},
@@ -166,14 +166,12 @@ void PacMan()
                 } 
                 else if (v==2) 
                 { 
-                    cout<<"W.I.P"<<endl; 
-                    sleep(1); 
+                    SortDisplay();
                     continue; 
                 } 
                 else if (v==3) 
                 { 
-                    cout<<"W.I.P"<<endl; 
-                    sleep(1); 
+                    settings();
                     continue; 
                 } 
                 else if (v==4) 
@@ -182,14 +180,12 @@ void PacMan()
         } 
         else if (u==2) 
         { 
-            cout<<"W.I.P"<<endl; 
-            sleep(1); 
+            SortDisplay();
             continue; 
         } 
         else if (u==3) 
         { 
-            cout<<"W.I.P"<<endl; 
-            sleep(1); 
+            settings();
             continue; 
         } 
         else if (u==4) 
