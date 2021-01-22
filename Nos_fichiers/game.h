@@ -36,11 +36,10 @@ vector<vector<string>> kmap{
     {"║","¤","║",".",".",".","║",".","║",".",".",".","║",".","║"},
 	{"║",".","║",".","║",".","║",".","║",".","║",".","║",".","║"},
 	{"║",".","║",".","║",".","║",".","║",".","║",".","║",".","."},
-	{"║",".","║",".",".",".","║",".","║",".",".",".","║",".","║"},
+    {"║",".","║",".",".",".","║",".","║",".",".",".","║","●","║"},
 	{"║",".","╚","═",".","═","╝",".","╚","═",".","═","╝",".","."},
 	{"║",".",".",".",".",".",".",".",".",".",".",".",".",".","."},
 	{"╚","═",".","═",".","═","═",".",".","═",".",".",".","═","╝"}};
-
 
 
 
@@ -49,18 +48,42 @@ vector<vector<string>> kmap{
  * @return (voir exemple)
  */
 
-unsigned CountNbPacGum();
+unsigned CountNbPacGum()
+{
+    unsigned nbpacgum(0);
+    for (int x = 0; x < kmap.size(); x++) {
+        for (int y = 0; y < kmap[x].size(); y++) {
+              if(kmap[x][y] == ".")
+                {
+                  nbpacgum = nbpacgum + 1;
+              }
+            }
+    }
+    return nbpacgum;
+}
 
-
+unsigned NbPacGumInit(CountNbPacGum());
 
 /**
  * @brief count the numbers of Cherry(bonus) on the map at each refresh
  * @return (voir exemple)
  */
 
-unsigned CountNbCherry();
+unsigned CountNbCherry()
+{
+    unsigned nbcherry(0);
+    for (int x = 0; x < kmap.size(); x++) {
+        for (int y = 0; y < kmap[x].size(); y++) {
+              if(kmap[x][y] == "¤")
+                {
+                  nbcherry = nbcherry + 1;
+              }
+            }
+    }
+    return nbcherry;
+}
 
-
+unsigned NbcherryInit(CountNbCherry());
 
 /**
  * @brief count the numbers of Ghosts on the map at each refresh
@@ -72,7 +95,7 @@ unsigned CountNbGhost()
     unsigned nbghost(0);
     for (int x = 0; x < kmap.size(); x++) {
         for (int y = 0; y < kmap[x].size(); y++) {
-              if(kmap[x][y] == "¤")
+              if(kmap[x][y] == "$" || kmap[x][y] == "£" || kmap[x][y] == "@")
                 {
                   nbghost = nbghost + 1;
               }
@@ -93,6 +116,7 @@ unsigned Calculscore()
     unsigned NbPacGumEatByPlayer(0);
     unsigned NbCherryEatByPlayer(0);
     unsigned NbGhostEatByplayer(0);
+    unsigned NbSPacGumEatByPlayer(0);
     NbPacGumEatByPlayer = NbPacGumInit - CountNbPacGum();
     NbCherryEatByPlayer = NbcherryInit - CountNbCherry();
     NbGhostEatByplayer = 3 - CountNbGhost();
@@ -106,7 +130,10 @@ unsigned Calculscore()
  * @brief display the player's score
  */
 
-void AffichScore();
+void AffichScore()
+{
+    cout << "Your Score :" << Calculscore() << endl;
+}
 
 // start the game and show map/enemies/character
 
@@ -115,7 +142,7 @@ void AffichScore();
  * \fn (voir exemple)
  */
 
-void Launch_Game();
+void Launch_Game(){
 
     vector<int> pos {1,1};
 	vector<int> posf1 {1,2};
@@ -210,4 +237,26 @@ void PacMan()
                     continue;
                 }
 
+            } 
+        } 
+        else if (u==2) 
+        {
+            SortDisplay();
+            continue; 
+        } 
+        else if (u==3) 
+        { 
+            settings();
+            continue; 
+        } 
+        else if (u==4) 
+            exit(0); 
+        else if (u==5)
+        {
+            Credit();
+            continue;
+        }
+
+    } 
+} 
 #endif // GAME_H 
