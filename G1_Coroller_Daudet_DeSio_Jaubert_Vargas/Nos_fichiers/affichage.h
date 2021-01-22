@@ -55,7 +55,6 @@ void Color (const string & coul);
  */
 void EntryPlayerscore(unsigned score);
 
-void Displayscore();
 
 
 void ShowMap(StringMatrix & map, unsigned & SuperPacGum);

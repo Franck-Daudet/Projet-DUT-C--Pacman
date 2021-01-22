@@ -67,7 +67,7 @@ void settings()
 
         MapParams[choice] = Key;
 
-        ofstream OFlow("../Projet-DUT-C--Pacman/Nos_fichiers/config.yaml");
+        ofstream OFlow("../G1_Coroller_Daudet_DeSio_Jaubert_Vargas/Nos_fichiers/config.yaml");
         for (map<string, string>::iterator iter = MapParams.begin(); iter != MapParams.end(); ++iter) {
             OFlow << iter->first << " : " << iter->second << endl;
         }

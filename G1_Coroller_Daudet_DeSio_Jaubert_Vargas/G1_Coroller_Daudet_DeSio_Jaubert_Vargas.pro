@@ -4,13 +4,13 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
-    Nos_fichiers/Start-End_Screen.cpp \
-    Nos_fichiers/affichage.cpp \
-    Nos_fichiers/deplacement.cpp \
-    Nos_fichiers/game.cpp \
-    Nos_fichiers/getch.cpp \
-    Nos_fichiers/settings.cpp \
-    Nos_fichiers/triclassement.cpp \
+        Nos_fichiers/Start-End_Screen.cpp \
+        Nos_fichiers/affichage.cpp \
+        Nos_fichiers/deplacement.cpp \
+        Nos_fichiers/game.cpp \
+        Nos_fichiers/getch.cpp \
+        Nos_fichiers/settings.cpp \
+        Nos_fichiers/triclassement.cpp \
         main.cpp
 
 HEADERS += \

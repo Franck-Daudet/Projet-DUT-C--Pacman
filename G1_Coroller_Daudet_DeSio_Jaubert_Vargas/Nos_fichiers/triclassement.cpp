@@ -27,7 +27,7 @@ void SortDisplay()
     while(Var)
     {
         ClearScreen();
-        std::ifstream infile("../Projet-DUT-C--Pacman/Nos_fichiers/TxtDirectory/PlayersScores.txt");
+        std::ifstream infile("../G1_Coroller_Daudet_DeSio_Jaubert_Vargas/Nos_fichiers/TxtDirectory/PlayersScores.txt");
         unsigned nbligne(0);
         std::vector<std::string> v;
         std::string line;

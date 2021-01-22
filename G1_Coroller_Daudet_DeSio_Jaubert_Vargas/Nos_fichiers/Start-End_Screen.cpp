@@ -71,7 +71,7 @@ unsigned Choices (unsigned& y)
 
 unsigned Start_Screen() /*Animation of the Start menu + options choices*/
 {
-    string BeginLink ="../Projet-DUT-C--Pacman/Nos_fichiers/TxtDirectory/StartSheet";
+    string BeginLink ="../G1_Coroller_Daudet_DeSio_Jaubert_Vargas/Nos_fichiers/TxtDirectory/StartSheet";
     bool var = true;
     unsigned y;
     while(var)
@@ -92,7 +92,7 @@ unsigned Start_Screen() /*Animation of the Start menu + options choices*/
 
 unsigned End_Screen() /*Animation of the game over + options choices*/
 {
-    string BeginLink ="../Projet-DUT-C--Pacman/Nos_fichiers/TxtDirectory/EndSheetsDr/EndSheet";
+    string BeginLink ="../G1_Coroller_Daudet_DeSio_Jaubert_Vargas/Nos_fichiers/TxtDirectory/EndSheetsDr/EndSheet";
     bool var = true;
     unsigned y;
     LoadScreen(BeginLink+".txt", KRed);
@@ -124,7 +124,7 @@ void Credit()
     while(Var)
     {
         ClearScreen();
-        ifstream Flow ("../Projet-DUT-C--Pacman/Nos_fichiers/TxtDirectory/credit.txt");
+        ifstream Flow ("../G1_Coroller_Daudet_DeSio_Jaubert_Vargas/Nos_fichiers/TxtDirectory/credit.txt");
         string line;
         while(getline(Flow, line))
             cout << line << endl;

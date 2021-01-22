@@ -28,7 +28,7 @@ void EntryPlayerscore(unsigned score)
 {
     ofstream Scoreplayer;
     string Playername;
-    Scoreplayer.open("../Projet-DUT-C--Pacman/Nos_fichiers/TxtDirectory/PlayersScores.txt",ios::out|ios::app);
+    Scoreplayer.open("../G1_Coroller_Daudet_DeSio_Jaubert_Vargas/Nos_fichiers/TxtDirectory/PlayersScores.txt",ios::out|ios::app);
     if(Scoreplayer)
       {
         cout << "Entry your username" << endl;
@@ -50,16 +50,7 @@ void EntryPlayerscore(unsigned score)
     Scoreplayer.close();
 }
 
-void Displayscore()
-{
-   ifstream Scoreplayerdisplay("PlayersScores.txt");
-   string line;
-   while(getline(Scoreplayerdisplay, line))
-      {
-        cout << line << endl;
-      }
 
-}
 
 void ShowMap(StringMatrix & map, unsigned & SuperPacGum){
     // Color map and show it
