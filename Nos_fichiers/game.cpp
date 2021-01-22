@@ -196,9 +196,9 @@ void Launch_Game(){
 
 void PacMan()
 {
+    system("cvlc MusicDirectory/pac-man-theme-remix-by-arsenic.mp3");
     while(true)
     {
-        system("cvlc MusicDirectory/pac-man-theme-remix-by-arsenic.mp3");
         unsigned u = Start_Screen();
         if (u==1)
         {
