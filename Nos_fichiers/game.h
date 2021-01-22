@@ -27,44 +27,12 @@ using namespace std;
 
 
 /**
- * @brief count the numbers of PacGum on the map at each refresh
- * @return (voir exemple)
- */
-
-unsigned CountNbPacGum();
-
-
-
-/**
- * @brief count the numbers of Cherry(bonus) on the map at each refresh
- * @return (voir exemple)
- */
-
-unsigned CountNbCherry();
-
-
-/**
- * @brief count the numbers of Ghosts on the map at each refresh
- * @return (voir exemple)
- */
-
-unsigned CountNbGhost();
-
-
-/**
  * @brief do at each movements a calculing operation that permit to get the player's score
  * @return (voir exemple)
  */
 
-unsigned Calculscore();
+unsigned Calc();
 
-
-
-/**
- * @brief display the player's score
- */
-
-void AffichScore();
 
 // start the game and show map/enemies/character
 

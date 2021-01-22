@@ -32,74 +32,26 @@ StringMatrix kmap{
     {"╚","═",".","═",".","═","═",".",".","═",".",".",".","═","╝"}};
 
 
+unsigned score(0);
 
-unsigned CountNbPacGum()
+//calculates the score based on what pacman eats
+void Calc (string EatByPacman)
 {
-    unsigned nbpacgum(0);
-    for (int x = 0; x < kmap.size(); x++) {
-        for (int y = 0; y < kmap[x].size(); y++) {
-              if(kmap[x][y] == ".")
-                {
-                  nbpacgum = nbpacgum + 1;
-              }
-            }
-    }
-    return nbpacgum;
+  unsigned newscore(0);
+  if (EatByPacman == ".")
+       newscore = 1;
+  else if (EatByPacman == "●")
+       newscore = 20;
+  else if (EatByPacman == "¤")
+        newscore = 10;
+  else if (EatByPacman == "$" || EatByPacman == "£" || EatByPacman == "@")
+        newscore = 50;
+  score = score + newscore;
 }
-
-unsigned NbPacGumInit(CountNbPacGum());
-
-
-unsigned CountNbCherry()
-{
-    unsigned nbcherry(0);
-    for (int x = 0; x < kmap.size(); x++) {
-        for (int y = 0; y < kmap[x].size(); y++) {
-              if(kmap[x][y] == "¤")
-                {
-                  nbcherry = nbcherry + 1;
-              }
-            }
-    }
-    return nbcherry;
-}
-
-unsigned NbcherryInit(CountNbCherry());
-
-unsigned CountNbGhost()
-{
-    unsigned nbghost(0);
-    for (int x = 0; x < kmap.size(); x++) {
-        for (int y = 0; y < kmap[x].size(); y++) {
-              if(kmap[x][y] == "$" || kmap[x][y] == "£" || kmap[x][y] == "@")
-                {
-                  nbghost = nbghost + 1;
-              }
-            }
-    }
-    return nbghost;
-}
-
-unsigned Calculscore()
-{
-    unsigned PlayerScore(0);
-    unsigned NbPacGumEatByPlayer(0);
-    unsigned NbCherryEatByPlayer(0);
-    unsigned NbGhostEatByplayer(0);
-    unsigned NbSPacGumEatByPlayer(0);
-    NbPacGumEatByPlayer = NbPacGumInit - CountNbPacGum();
-    NbCherryEatByPlayer = NbcherryInit - CountNbCherry();
-    NbGhostEatByplayer = 3 - CountNbGhost();
-    PlayerScore = NbPacGumEatByPlayer + NbCherryEatByPlayer*10 + NbGhostEatByplayer*50;
-    return PlayerScore;
-}
-
-
-
-void AffichScore()
+/**void AffichScore()
 {
     cout << "Your Score :" << Calculscore() << endl;
-}
+}**/
 
 // start the game and show map/enemies/character
 
@@ -124,12 +76,12 @@ void Launch_Game(){
     string EatByPacman = " ";
     bool NotDead = true;
     unsigned SuperPacGum = 0 ;
-
     ShowMap(kmap,SuperPacGum);
 
 
     while (NotDead){
-        //AffichScore();
+        Calc(EatByPacman);
+        cout << "Player's score : " << score << endl;
         EatByPacman = MovePacman(pos,kmap);
         oldposf1 = NextPhantomMove(kmap,posf1,oldposf1);
         oldposf2 = NextPhantomMove(kmap,posf2,oldposf2);
@@ -203,14 +155,14 @@ void PacMan()
         if (u==1)
         {
             Launch_Game();
-            //EntryPlayerscore(Calculscore());
+            EntryPlayerscore(score);
             while(true)
             {
                 unsigned v = End_Screen();
                 if (v==1)
                 {
                     Launch_Game();
-                    //EntryPlayerscore(Calculscore());
+                    EntryPlayerscore(score);
                     continue;
                 }
                 else if (v==2)
