@@ -18,15 +18,14 @@
 using namespace std;
 // MATRICE YX (et non XY)
 /**
- * @brief MapXSize
+ * @brief MapXSize 
  * @param map
  */
 unsigned MapXSize (StringMatrix & map);
 
 /**
- * @brief résumé à faire (voir correc prof pour exemple)
- * @param[in, out] map   petit résumé à faire
- * @return (voir exemple)
+ * @brief MapYSize
+ * @param map
  */
 
 unsigned MapYSize (StringMatrix & map);
@@ -80,11 +79,11 @@ bool PacGumTouchTest(string & FuturElement);
 bool BonusTouchTest(string & FuturElement);
 
 /**
- * @brief résumé à faire (voir correc prof pour exemple)
- * @param[in, out] map   petit résumé à faire
- * @param[in, out] AddtoPos   petit résumé à faire
- * @param[in, out] pos   petit résumé à faire
- * @return (voir exemple)
+ * @brief GoingToJump
+ * @param map
+ * @param AddtoPos
+ * @param pos
+ * @return
  */
 
 bool GoingToJump(StringMatrix & map,vector<int> & AddtoPos,vector<int> & pos);
