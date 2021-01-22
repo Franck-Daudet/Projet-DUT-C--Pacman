@@ -15,9 +15,9 @@
 
 using namespace std;
 /**
- * @brief get_rank
+ * @brief get_rank Gets the position of the ranks
  * @param input
- * @return
+ * @return A COMPLETER /!\
  */
 int get_rank(std::string input);
 

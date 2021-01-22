@@ -15,7 +15,7 @@
 
 /**
  * @brief getch Copy from stackoverflown, see on the link in the code
- * @return  An int
+ * @return  An integer
  */
 
 int getch(void);
@@ -24,7 +24,7 @@ int getch(void);
 
 /**
  * @brief kbhit Copy from stackoverflown, see on the link in the code
- * @return  An bool
+ * @return  An boolean
  */
 
 bool kbhit();
