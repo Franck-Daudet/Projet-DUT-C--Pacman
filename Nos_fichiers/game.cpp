@@ -149,7 +149,7 @@ void Launch_Game(){
 void PacMan()
 {
     //Musique
-    system("cvlc ../Projet-DUT-C--Pacman/Nos_fichiers/MusicDirectory/pac-man-theme-remix-by-arsenic1987.mp3");
+    system("cvlc ../Projet-DUT-C--Pacman/Nos_fichiers/MusicDirectory/pac-man-theme-remix-by-arsenic1987.mp3 &");
           
     while(true)
     {
@@ -178,7 +178,10 @@ void PacMan()
                     continue;
                 }
                 else if (v==4)
+                {
+                    system("killall vlc");
                     exit(0);
+                }
                 else if (v==5)
                 {
                     Credit();
@@ -198,7 +201,11 @@ void PacMan()
             continue;
         }
         else if (u==4)
+        {
+            system("killall vlc");
             exit(0);
+
+        }
         else if (u==5)
         {
             Credit();
