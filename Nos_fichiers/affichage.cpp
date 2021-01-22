@@ -28,15 +28,16 @@ void EntryPlayerscore(unsigned score)
 {
     ofstream Scoreplayer;
     string Playername;
-    Scoreplayer.open("../Projet-DUT-C--Pacman-main/Nos_fichiers/TxtDirectory/PlayersScores.txt",ios::out|ios::app);
+    Scoreplayer.open("../Projet-DUT-C--Pacman/Nos_fichiers/TxtDirectory/PlayersScores.txt",ios::out|ios::app);
     if(Scoreplayer)
       {
         cout << "Entry your username" << endl;
         cin >> Playername;
         if (Playername.size() > 15)
           {
+            cout << "Username too long" << endl;
             EntryPlayerscore(score);
-           }
+          }
         else
           {
             Scoreplayer << Playername << " " << score << endl;
