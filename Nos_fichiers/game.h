@@ -23,6 +23,7 @@ using namespace std;
 #include "triclassement.h"
 #include "alias.h"
 // Different map
+
 StringMatrix kmap{
 	{"╔","═","═",".",".","═","═",".","═",".","═","═",".","═","╗"},
 	{".","ᗧ",".",".",".",".",".","●",".",".",".",".",".",".","."},
@@ -134,10 +135,11 @@ void Launch_Game(){
     string ElementOnF1 (" ");
     string ElementOnF2 (" ");
     string ElementOnF3 (" ");
-	ShowMap(kmap);
     string EatByPacman = " ";
     bool NotDead = true;
     unsigned SuperPacGum = 0 ;
+
+    ShowMap(kmap,SuperPacGum);
     
 
 	while (NotDead){
@@ -146,7 +148,6 @@ void Launch_Game(){
         oldposf1 = NextPhantomMove(kmap,posf1,oldposf1);
         oldposf2 = NextPhantomMove(kmap,posf2,oldposf2);
         oldposf3 = NextPhantomMove(kmap,posf3,oldposf3);
-
 		
         ElementOnF1 = MoveCharacter(posf1,kmap,oldposf1,"@",ElementOnF1);
         ElementOnF2 = MoveCharacter(posf2,kmap,oldposf2,"$",ElementOnF2);
@@ -171,7 +172,7 @@ void Launch_Game(){
             ElementOnF3 = ElementOnF2;
         }
 
-        if(SuperPacGum > 0 || EatByPacman == "●"){
+        if(SuperPacGum || EatByPacman == "●"){
             if(EatByPacman == "●"){
                 SuperPacGum = 15;
             }
@@ -197,12 +198,11 @@ void Launch_Game(){
                 ElementOnF1 = " ";
             }
             --SuperPacGum;
-            ShowMap(kmap);
         }
         else{
-            ShowMap(kmap);
 		    if (ElementOnF1 == "ᗧ" || EatByPacman == "@"|| ElementOnF2 == "ᗧ" || EatByPacman == "$"|| ElementOnF3 == "ᗧ"|| EatByPacman == "£") NotDead = false;
         }
+        ShowMap(kmap,SuperPacGum);
 	}
 }
 
