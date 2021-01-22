@@ -17,7 +17,11 @@
 
 
 using namespace std;
-
+/**
+ * @brief Sort the player's score
+ * @param
+ * @return
+ */
 int get_rank(std::string input);
 
 /**
