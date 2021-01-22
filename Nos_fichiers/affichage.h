@@ -32,6 +32,12 @@ const string KBYellow  ("43");
 const string KBBlue    ("44");
 const string Pacman  ("\u15E7");
 
+/*!
+ * \brief résumé à faire (voir correc prof pour exemple)
+ * \param[in, out] Map   petit résumé à faire
+ * \fn (voir exemple)
+ */
+
 void ClearScreen ();
 
 /**
