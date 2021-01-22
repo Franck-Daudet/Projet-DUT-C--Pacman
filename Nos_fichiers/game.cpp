@@ -119,7 +119,8 @@ void Launch_Game()
     string ElementOnF1 (" ");
     string ElementOnF2 (" ");
     string ElementOnF3 (" ");
-    ShowMap(kmap, 0);
+    unsigned x =0;
+    ShowMap(kmap, x);
     string EatByPacman = " ";
     bool Pasmort = true;
 
@@ -155,7 +156,7 @@ void Launch_Game()
         }
 
 
-        ShowMap(kmap, 0);
+        ShowMap(kmap, x);
         if (pos == posf1 || pos == posf2 || pos == posf3) Pasmort = false;
     }
 }
