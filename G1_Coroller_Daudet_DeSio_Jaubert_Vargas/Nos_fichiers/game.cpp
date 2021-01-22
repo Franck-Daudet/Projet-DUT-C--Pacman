@@ -109,10 +109,6 @@ void Calc (string EatByPacman)
         newscore = 50;
   score = score + newscore;
 }
-/**void AffichScore()
-{
-    cout << "Your Score :" << Calculscore() << endl;
-}**/
 
 // start the game and show map/enemies/character
 
@@ -247,7 +243,7 @@ void Launch_Game(){
 
 void PacMan()
 {
-    //Musique
+    //Music
     //system("cvlc ../G1_Coroller_Daudet_DeSio_Jaubert_Vargas/Nos_fichiers/MusicDirectory/pac-man-theme-remix-by-arsenic1987.mp3 &");
           
     while(true)
