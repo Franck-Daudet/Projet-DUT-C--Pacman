@@ -105,32 +105,35 @@ void AffichScore()
 
 
 
-void Launch_Game()
-{
+void Launch_Game(){
 
     vector<int> pos {1,1};
     vector<int> posf1 {1,2};
+    vector<int> posinitf1 {1,2};
     vector<int> oldposf1 {0,0};
     vector<int> posf2 {3,7};
+    vector<int> posinitf2 {3,7};
     vector<int> oldposf2 {0,0};
     vector<int> posf3 {2,4};
+    vector<int> posinitf3 {2,4};
     vector<int> oldposf3 {0,0};
 
     string ElementOnF1 (" ");
     string ElementOnF2 (" ");
     string ElementOnF3 (" ");
-    unsigned x =0;
-    ShowMap(kmap, x);
     string EatByPacman = " ";
-    bool Pasmort = true;
+    bool NotDead = true;
+    unsigned SuperPacGum = 0 ;
 
-    while (Pasmort){
+    ShowMap(kmap,SuperPacGum);
+
+
+    while (NotDead){
         AffichScore();
         EatByPacman = MovePacman(pos,kmap);
         oldposf1 = NextPhantomMove(kmap,posf1,oldposf1);
         oldposf2 = NextPhantomMove(kmap,posf2,oldposf2);
         oldposf3 = NextPhantomMove(kmap,posf3,oldposf3);
-
 
         ElementOnF1 = MoveCharacter(posf1,kmap,oldposf1,"@",ElementOnF1);
         ElementOnF2 = MoveCharacter(posf2,kmap,oldposf2,"$",ElementOnF2);
@@ -155,9 +158,37 @@ void Launch_Game()
             ElementOnF3 = ElementOnF2;
         }
 
-
-        ShowMap(kmap, x);
-        if (pos == posf1 || pos == posf2 || pos == posf3) Pasmort = false;
+        if(SuperPacGum || EatByPacman == "●"){
+            if(EatByPacman == "●"){
+                SuperPacGum = 15;
+            }
+            if (ElementOnF1 == "ᗧ" || EatByPacman == "@"){
+                kmap[posf1[0]][posf1[1]] = ElementOnF1;
+                kmap[pos[0]][pos[1]] = "ᗧ";
+                posf1 = posinitf1;
+                oldposf1 = {0,0};
+                ElementOnF1 = " ";
+            }
+            if (ElementOnF2 == "ᗧ"|| EatByPacman == "$"){
+                kmap[posf2[0]][posf2[1]] = ElementOnF2;
+                kmap[pos[0]][pos[1]] = "ᗧ";
+                posf2 = posinitf2;
+                oldposf2 = {0,0};
+                ElementOnF1 = " ";
+            }
+            if (ElementOnF3 == "ᗧ"|| EatByPacman == "£"){
+                kmap[posf3[0]][posf3[1]] = ElementOnF3;
+                kmap[pos[0]][pos[1]] = "ᗧ";
+                posf3 = posinitf3;
+                oldposf3 = {0,0};
+                ElementOnF1 = " ";
+            }
+            --SuperPacGum;
+        }
+        else{
+            if (ElementOnF1 == "ᗧ" || EatByPacman == "@"|| ElementOnF2 == "ᗧ" || EatByPacman == "$"|| ElementOnF3 == "ᗧ"|| EatByPacman == "£") NotDead = false;
+        }
+        ShowMap(kmap,SuperPacGum);
     }
 }
 
