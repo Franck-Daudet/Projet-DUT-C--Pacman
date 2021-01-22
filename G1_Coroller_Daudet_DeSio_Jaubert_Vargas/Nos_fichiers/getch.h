@@ -15,7 +15,7 @@
 
 /**
  * @brief résumé à faire (voir correc prof pour exemple)
- * @return (voir exemple)
+ * @return (see example)
  */
 
 int getch(void);
@@ -24,7 +24,7 @@ int getch(void);
 
 /**
  * @brief résumé à faire (voir correc prof pour exemple)
- * @return (voir exemple)
+ * @return (see example)
  */
 
 bool kbhit();
