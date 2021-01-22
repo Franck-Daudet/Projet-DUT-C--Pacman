@@ -18,7 +18,7 @@ using namespace std;
 
 
 /**
- * @brief settings : Settings that allow the player to change the controls keys
+ * @brief settings  Settings that allow the player to change the controls keys
  */
 
 void settings();
