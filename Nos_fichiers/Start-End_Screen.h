@@ -132,11 +132,9 @@ unsigned Choices (unsigned& y)
             case '5':
                 y=5;
                 break;
-        }
-        if (x !='1' && x !='2' && x !='3' && x !='4' && x!= '5')
-        {
-            cout << "Wrong answer, you're supposed to press 1 or 2 or 3 or 4 or 5" << endl;
-            usleep(800000);
+            default:
+                cout << "Wrong answer, you're supposed to press 1 or 2 or 3 or 4 or 5" << endl;
+                usleep(800000);
         }
      }
     return y;
@@ -216,11 +214,9 @@ void Credit()
             case '4':
                 Var=false;
                 break;
-        }
-        if (input != '4')
-        {
-            cout << "Wrong input, you're supposed to press 4" << endl;
-            usleep(800000);
+            default:
+                cout << "Wrong input, you're supposed to press 4" << endl;
+                usleep(800000);
         }
         Flow.close();
     }

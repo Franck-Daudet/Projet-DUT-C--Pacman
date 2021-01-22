@@ -64,11 +64,10 @@ void SortDisplay()
             case '4':
                 Var=false;
                 break;
-        }
-        if (input != '4')
-        {
-            cout << "Wrong input, you're supposed to press 4" << endl;
-            usleep(800000);
+
+            default:
+                cout << "Wrong input, you're supposed to press 4" << endl;
+                usleep(800000);
         }
         infile.close();
     }
