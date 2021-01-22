@@ -254,8 +254,8 @@ void Launch_Game(){
 
 void PacMan()
 {
-    //Musique
-    //system("cvlc ../G1_Coroller_Daudet_DeSio_Jaubert_Vargas/Nos_fichiers/MusicDirectory/pac-man-theme-remix-by-arsenic1987.mp3 &");
+    //Music
+    system("cvlc ../G1_Coroller_Daudet_DeSio_Jaubert_Vargas/Nos_fichiers/MusicDirectory/pac-man-theme-remix-by-arsenic1987.mp3 &");
           
     while(true)
     {

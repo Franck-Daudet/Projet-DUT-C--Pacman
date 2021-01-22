@@ -28,7 +28,7 @@ using namespace std;
 
 /**
  * @brief Calc Do at each movements a calculing operation that permit to get the player's score
- * @return A COMPLETER /!\
+ * @return
  */
 
 unsigned Calc();
