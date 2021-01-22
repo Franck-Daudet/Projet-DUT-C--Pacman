@@ -22,7 +22,7 @@ using namespace std;
 int get_rank(std::string input);
 
 /**
- * @brief SortDisplay : Sort the player's score
+ * @brief SortDisplay Sort the player's score
  */
 
 void SortDisplay();

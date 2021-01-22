@@ -16,7 +16,7 @@ using namespace std;
 
 
 /**
- * @brief Load the file .txt and modify to incorporate colors
+ * @brief LoadScreen Load the file .txt and modify to incorporate colors
  * @param [in] Link   The Link of the file
  * @param [in] TheColor   The colot to incorporate
  */
@@ -25,15 +25,15 @@ void LoadScreen(const string& Link, const string& TheColor);
 
 
 /**
- * @brief With getch, the function take the input of the player
- * @param y Var without value in input
+ * @brief Choices With getch, the function take the input of the player
+ * @param [in, out] y Var without value in input
  * @return 1, 2, 3, 4, 5 depending on user input
  */
 
 unsigned Choices (unsigned& y);
 
 /*!
- * \brief Load the Start Screen and allow a choice
+ * \brief Start_Screen Load the Start Screen and allow a choice
  * \return 1, 2, 3, 4, 5 depending on the choice of the player
  */
 
@@ -41,13 +41,13 @@ unsigned Start_Screen(); /*Animation of the Start menu + options choices*/
 
 
 /*!
- * \brief Load the Game Over Screen and allow a choice
+ * \brief End_Screen Load the Game Over Screen and allow a choice
  * \return 1, 2, 3, 4, 5 depending on the choice of the player
  */
 
 unsigned End_Screen(); /*Animation of the game over + options choices*/
 /*!
- * \brief Load the Credit Screen
+ * \brief Credit Load the Credit Screen
  */
 void Credit(); /*Credit screen*/
 

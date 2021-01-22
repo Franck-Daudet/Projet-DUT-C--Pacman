@@ -82,7 +82,7 @@ void ClearScreen ();
 
 /**
  * @brief Color With the param, apply the color
- * @param coul
+ * @param [in] coul
  */
 
 void Color (const string & coul);
@@ -95,8 +95,8 @@ void EntryPlayerscore(unsigned score);
 
 /**
  * @brief ShowMap Show the game in itself
- * @param map
- * @param SuperPacGum
+ * @param [in, out] map
+ * @param [in, out] SuperPacGum
  */
 
 void ShowMap(StringMatrix & map, unsigned & SuperPacGum);
