@@ -3,7 +3,7 @@
 
 /*!
  * \file settings.h
- * \brief Settings Just the settings
+ * \brief Settings and that it
  * \author Nicolas Jaubert
  * \version 1.0
  * \date 21/01/21
@@ -16,9 +16,14 @@
 
 using namespace std;
 
+/**
+ * @brief settings : Settings that getting the inputs
+ */
+
+void inputconfig();
 
 /**
- * @brief settings  Settings that allow the player to change the controls keys
+ * @brief settings : Settings that allow the player to change the controls keys
  */
 
 void settings();

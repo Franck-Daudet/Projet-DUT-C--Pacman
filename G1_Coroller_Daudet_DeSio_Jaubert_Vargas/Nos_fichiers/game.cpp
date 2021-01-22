@@ -207,6 +207,18 @@ void Launch_Game(){
             ElementOnF1 = ElementOnF3;
         }
         ShowMap(kmap,SuperPacGum);
+    
+    bool Win = true;
+    for (int x = 0; x < kmap.size(); x++) {
+        for (int y = 0; y < kmap[x].size(); y++) {
+                if (kmap[x][y] == ".") {
+                    Win = false;
+                }
+        }
+    }
+    if (Win) {
+        Launch_Game();
+    }
     }
 }
 

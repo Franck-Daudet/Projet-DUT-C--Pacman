@@ -29,4 +29,4 @@ Le jeu consiste à déplacer Pac-Man, un personnage qui, vu de profil, ressemble
 - [x] des endroits avec des tps
 - [x] écran de game over
 - [x] commentaire 
-- [ ] Musique
+- [x] Musique
