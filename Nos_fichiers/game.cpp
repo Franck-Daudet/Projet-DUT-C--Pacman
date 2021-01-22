@@ -198,6 +198,7 @@ void PacMan()
 {
     while(true)
     {
+        system("cvlc MusicDirectory/pac-man-theme-remix-by-arsenic.mp3");
         unsigned u = Start_Screen();
         if (u==1)
         {
