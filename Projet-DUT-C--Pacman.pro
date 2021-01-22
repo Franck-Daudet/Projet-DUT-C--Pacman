@@ -9,6 +9,7 @@ SOURCES += \
 HEADERS += \
     Nos_fichiers/Start-End_Screen.h \
     Nos_fichiers/affichage.h \
+    Nos_fichiers/alias.h \
     Nos_fichiers/deplacement.h \
     Nos_fichiers/game.h \
     Nos_fichiers/getch.h \
