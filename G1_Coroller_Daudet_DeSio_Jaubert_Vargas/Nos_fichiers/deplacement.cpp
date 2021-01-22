@@ -56,26 +56,12 @@ bool ColisionTest(string & FutureElement){
     else return true;
 }
 
-bool PacGumTouchTest(string & FuturElement){       //Vérifie si collision avec bonus
-    string BonusList[] = {"."};
-    if (find(begin(BonusList),end(BonusList),FuturElement) == end(BonusList)) return true;
-    else return false;
-}
-
-bool BonusTouchTest(string & FuturElement){       //Vérifie si collision avec bonus
-    string BonusList[] = {"¤"};
-    if (find(begin(BonusList),end(BonusList),FuturElement) == end(BonusList)) return true;
-    else return false;
-}
-
-
 
 bool GoingToJump(StringMatrix & map,vector<int> & AddtoPos,vector<int> & pos){
     // Return true if the character is going to jump
     if (pos[0]+AddtoPos[0] < 0 || pos[0]+AddtoPos[0] > MapYSize(map) || pos[1]+AddtoPos[1] < 0 || pos[1]+AddtoPos[1] > MapXSize(map)-1 ) return true;
     else return false;
 }
-
 
 
 string Jump(vector<int> & pos,vector<int> Addpos, StringMatrix & map){
@@ -177,9 +163,6 @@ string MovePacman (vector<int> & pos,StringMatrix & map){
         EatByPacman = MoveElt(map,pos,Addtopos,"\u15E7"," ");
         pos[0] += Addtopos[0];
         pos[1] += Addtopos[1];
-    }
-    else if (PacGumTouchTest(map[pos[0]+Addtopos[0]][pos[1]+Addtopos[1]])){
-        //NbPacGumEaten = NbPacGumEaten - 1;
     }
     return EatByPacman;
 }
