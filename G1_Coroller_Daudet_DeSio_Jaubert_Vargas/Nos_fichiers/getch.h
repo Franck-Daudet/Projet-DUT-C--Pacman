@@ -15,7 +15,7 @@
 
 /**
  * @brief getch
- * @return (see example)
+ * @return
  */
 
 int getch(void);
@@ -24,7 +24,7 @@ int getch(void);
 
 /**
  * @brief kbhit
- * @return (see example)
+ * @return
  */
 
 bool kbhit();
