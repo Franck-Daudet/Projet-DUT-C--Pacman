@@ -149,7 +149,7 @@ void Launch_Game(){
 void PacMan()
 {
     //Musique
-    system("cvlc MusicDirectory/pac-man-theme-remix-by-arsenic1987.mp3"); 
+    system("cvlc ../Projet-DUT-C--Pacman/Nos_fichiers/MusicDirectory/pac-man-theme-remix-by-arsenic1987.mp3");
           
     while(true)
     {
