@@ -129,7 +129,7 @@ void Launch_Game(){
 
 
     while (NotDead){
-        AffichScore();
+        //AffichScore();
         EatByPacman = MovePacman(pos,kmap);
         oldposf1 = NextPhantomMove(kmap,posf1,oldposf1);
         oldposf2 = NextPhantomMove(kmap,posf2,oldposf2);
@@ -202,14 +202,14 @@ void PacMan()
         if (u==1)
         {
             Launch_Game();
-            EntryPlayerscore(Calculscore());
+            //EntryPlayerscore(Calculscore());
             while(true)
             {
                 unsigned v = End_Screen();
                 if (v==1)
                 {
                     Launch_Game();
-                    EntryPlayerscore(Calculscore());
+                    //EntryPlayerscore(Calculscore());
                     continue;
                 }
                 else if (v==2)

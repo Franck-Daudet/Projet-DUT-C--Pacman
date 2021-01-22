@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <string>
 #include <algorithm>
@@ -50,7 +51,7 @@ string MoveElt (StringMatrix & map,vector<int> pos,vector<int> Addpos, string ch
 
 bool ColisionTest(string & FutureElement){
     // Return if the element is in the wall list
-    string WallList[] = {"\u2550","\u2551","\u2554","\u2557","\u255A","\u255D" };
+    string WallList[] = {"\u2550","\u2551","\u2554","\u2557","\u255A","\u255D", "╠","╣","╦"};
     if (find(begin(WallList),end(WallList),FutureElement) != end(WallList))return false;
     else return true;
 }
@@ -148,6 +149,9 @@ vector<int> InputToChar(){
         case 'D':
         case 'd':
             Addtopos = {0,1};
+            break;
+        default:
+            Addtopos = {0, 0};
             break;
     }
     return Addtopos;
