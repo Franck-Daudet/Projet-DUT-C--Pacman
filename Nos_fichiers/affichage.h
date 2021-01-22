@@ -16,6 +16,7 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include "alias.h"
 
 
 using namespace std;
@@ -92,7 +93,7 @@ void Displayscore()
 
 }
 
-void ShowMap(vector<vector<string>> & map){
+void ShowMap(StringMatrix & map){
 	// Color map and show it
 	ClearScreen ();
 	Color(KBBlue);

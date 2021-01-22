@@ -14,11 +14,11 @@
 #include <algorithm>
 #include <unistd.h>
 #include "getch.h"
-
+#include "alias.h"
 using namespace std;
 // MATRICE YX (et non XY)
 
-unsigned MapXSize (vector<vector<string>> & map){
+unsigned MapXSize (StringMatrix & map){
 	// return X size of the map
 	return map[0].size();
 }
@@ -29,7 +29,7 @@ unsigned MapXSize (vector<vector<string>> & map){
  * @return (voir exemple)
  */
 
-unsigned MapYSize (vector<vector<string>> & map){
+unsigned MapYSize (StringMatrix & map){
 	// return Y size of the map
 	return map.size()-1;
 }
@@ -41,7 +41,7 @@ unsigned MapYSize (vector<vector<string>> & map){
  * @param[ (à remplir) ] NewX  petit résumé à faire
  */
 
-void MoveXElt (vector<vector<string>> & map,vector<int> pos, int NewX){
+void MoveXElt (StringMatrix & map,vector<int> pos, int NewX){
 	// Move X pos of the Element
 	map[pos[0]][pos[1]]= " ";
 	map[NewX][pos[1]] = "\u15E7";
@@ -54,13 +54,13 @@ void MoveXElt (vector<vector<string>> & map,vector<int> pos, int NewX){
  * @param[ (à remplir) ] NewY  petit résumé à faire
  */
 
-void MoveYElt (vector<vector<string>> & map,vector<int> pos, int NewY){
+void MoveYElt (StringMatrix & map,vector<int> pos, int NewY){
 	// Move Y pos of the Element
 	map[pos[0]][pos[1]]= " ";
 	map[pos[0]][NewY] = "\u15E7";
 }
 
-string MoveElt (vector<vector<string>> & map,vector<int> pos,vector<int> Addpos, string character,string stringsiton){
+string MoveElt (StringMatrix & map,vector<int> pos,vector<int> Addpos, string character,string stringsiton){
 	// Move X and Y pos of the Element
 	map[pos[0]][pos[1]]= stringsiton;
 	stringsiton = map[pos[0]+Addpos[0]][pos[1]+Addpos[1]];
@@ -101,7 +101,7 @@ bool BonusTouchTest(string & FuturElement){       //Vérifie si collision avec b
  * @return (voir exemple)
  */
 
-bool GoingToJump(vector<vector<string>> & map,vector<int> & AddtoPos,vector<int> & pos){
+bool GoingToJump(StringMatrix & map,vector<int> & AddtoPos,vector<int> & pos){
 	// Return true if the character is going to jump
 	if (pos[0]+AddtoPos[0] < 0 || pos[0]+AddtoPos[0] > MapYSize(map) || pos[1]+AddtoPos[1] < 0 || pos[1]+AddtoPos[1] > MapXSize(map)-1 ) return true;
 	else return false;
@@ -114,7 +114,7 @@ bool GoingToJump(vector<vector<string>> & map,vector<int> & AddtoPos,vector<int>
  * @param[in, out] map   petit résumé à faire
  */
 
-string Jump(vector<int> & pos,vector<int> Addpos, vector<vector<string>> & map){
+string Jump(vector<int> & pos,vector<int> Addpos, StringMatrix & map){
 	// Make the character jump
 	string FutureChar;
 	map[pos[0]][pos[1]]= " ";
@@ -136,9 +136,9 @@ string Jump(vector<int> & pos,vector<int> Addpos, vector<vector<string>> & map){
 	return FutureChar;
 }
 
-vector<vector<int>> MoveList (vector<vector<string>> & map,vector<int> pos,vector<int> oldmove ){
+IntMatrix MoveList (StringMatrix & map,vector<int> pos,vector<int> oldmove ){
     // return list of possible movement
-    vector<vector<int>> movelist;
+    IntMatrix movelist;
 	bool test = false;
     if (ColisionTest(map[pos[0]-1][pos[1]]) && pos[0] != 1 && oldmove[0] != 1){
         movelist.push_back({-1,0});
@@ -160,8 +160,8 @@ vector<vector<int>> MoveList (vector<vector<string>> & map,vector<int> pos,vecto
     return movelist;
 }
 
-vector<int> NextPhantomMove (vector<vector<string>> & map,vector<int> pos,vector<int> oldmove){
-    vector<vector<int>> movelist = MoveList (map, pos, oldmove);
+vector<int> NextPhantomMove (StringMatrix & map,vector<int> pos,vector<int> oldmove){
+    IntMatrix movelist = MoveList (map, pos, oldmove);
     return movelist[rand()% movelist.size()];
 }
 
@@ -190,7 +190,7 @@ vector<int> InputToChar(){
 	return Addtopos;
 }
 
-string MoveCharacter (vector<int> & pos,vector<vector<string>> & map,vector<int> Addtopos,string character,string stringsiton){
+string MoveCharacter (vector<int> & pos,StringMatrix & map,vector<int> Addtopos,string character,string stringsiton){
 	if (ColisionTest(map[pos[0]+Addtopos[0]][pos[1]+Addtopos[1]])){
 		stringsiton = MoveElt(map,pos,Addtopos,character,stringsiton);
 		pos[0] += Addtopos[0];
@@ -199,7 +199,7 @@ string MoveCharacter (vector<int> & pos,vector<vector<string>> & map,vector<int>
 	return stringsiton;
 }
 
-string MovePacman (vector<int> & pos,vector<vector<string>> & map){
+string MovePacman (vector<int> & pos,StringMatrix & map){
 	//Movement character whith z,q,s,d	
 	vector<int> Addtopos = InputToChar();
 	string EatByPacman;

@@ -21,23 +21,24 @@ using namespace std;
 #include "affichage.h"
 #include "settings.h"
 #include "triclassement.h"
+#include "alias.h"
 // Different map
-vector<vector<string>> kmap{
+StringMatrix kmap{
 	{"╔","═","═",".",".","═","═",".","═",".","═","═",".","═","╗"},
-	{".","ᗧ",".",".",".",".",".",".",".",".",".",".",".",".","."},
+	{".","ᗧ",".",".",".",".",".","●",".",".",".",".",".",".","."},
 	{".",".","╔","═",".","═","╗",".","╔","═",".","═","╗",".","."},
     {".",".",".",".",".",".","║",".","║",".",".",".","║","¤","."},
-	{".",".","║",".","║",".","║",".","║",".","║",".","║",".","║"},
+	{".",".","║","●","║",".","║",".","║",".","║",".","║",".","║"},
 	{".",".","║",".","║",".","║",".","║",".","║",".","║",".","."},
 	{".",".","║",".",".",".","║",".","║",".",".",".","║",".","."},
-	{".",".","╚",".",".","═","╝",".","╚","═",".","═","╝",".","║"},
-    {".",".",".",".",".",".",".","¤",".",".",".",".",".",".","."},
+	{".","●","╚",".",".","═","╝",".","╚","═",".","═","╝",".","║"},
+    {".",".",".",".",".",".",".","¤",".",".","●",".",".",".","."},
 	{"║",".","╔","═",".","═","╗",".","╔","═",".","═","╗",".","║"},
     {"║","¤","║",".",".",".","║",".","║",".",".",".","║",".","║"},
 	{"║",".","║",".","║",".","║",".","║",".","║",".","║",".","║"},
 	{"║",".","║",".","║",".","║",".","║",".","║",".","║",".","."},
 	{"║",".","║",".",".",".","║",".","║",".",".",".","║",".","║"},
-	{"║",".","╚","═",".","═","╝",".","╚","═",".","═","╝",".","."},
+	{"║",".","╚","═",".","═","╝","●","╚","═",".","═","╝",".","."},
 	{"║",".",".",".",".",".",".",".",".",".",".",".",".",".","."},
 	{"╚","═",".","═",".","═","═",".",".","═",".",".",".","═","╝"}};
 
@@ -121,10 +122,13 @@ void Launch_Game(){
 
     vector<int> pos {1,1};
 	vector<int> posf1 {1,2};
+    vector<int> posinitf1 {1,2};
     vector<int> oldposf1 {0,0};
 	vector<int> posf2 {3,7};
+    vector<int> posinitf2 {3,7};
     vector<int> oldposf2 {0,0};
     vector<int> posf3 {2,4};
+    vector<int> posinitf3 {2,4};    
     vector<int> oldposf3 {0,0};
 
     string ElementOnF1 (" ");
@@ -132,10 +136,11 @@ void Launch_Game(){
     string ElementOnF3 (" ");
 	ShowMap(kmap);
     string EatByPacman = " ";
-    bool Pasmort = true;
+    bool NotDead = true;
+    unsigned SuperPacGum = 0 ;
     
 
-	while (Pasmort){
+	while (NotDead){
         AffichScore();
 		EatByPacman = MovePacman(pos,kmap);
         oldposf1 = NextPhantomMove(kmap,posf1,oldposf1);
@@ -166,11 +171,38 @@ void Launch_Game(){
             ElementOnF3 = ElementOnF2;
         }
 
-
-		ShowMap(kmap);
-		if (pos == posf1 || pos == posf2 || pos == posf3) Pasmort = false;
-
-        usleep(400000 );
+        if(SuperPacGum > 0 || EatByPacman == "●"){
+            if(EatByPacman == "●"){
+                SuperPacGum = 15;
+            }
+            if (ElementOnF1 == "ᗧ" || EatByPacman == "@"){
+                kmap[posf1[0]][posf1[1]] = ElementOnF1;
+                kmap[pos[0]][pos[1]] = "ᗧ";
+                posf1 = posinitf1;
+                oldposf1 = {0,0};
+                ElementOnF1 = " ";
+            }
+            if (ElementOnF2 == "ᗧ"|| EatByPacman == "$"){
+                kmap[posf2[0]][posf2[1]] = ElementOnF2;
+                kmap[pos[0]][pos[1]] = "ᗧ";
+                posf2 = posinitf2;
+                oldposf2 = {0,0};
+                ElementOnF1 = " ";
+            }
+            if (ElementOnF3 == "ᗧ"|| EatByPacman == "£"){
+                kmap[posf3[0]][posf3[1]] = ElementOnF3;
+                kmap[pos[0]][pos[1]] = "ᗧ";
+                posf3 = posinitf3;
+                oldposf3 = {0,0};
+                ElementOnF1 = " ";
+            }
+            --SuperPacGum;
+            ShowMap(kmap);
+        }
+        else{
+            ShowMap(kmap);
+		    if (ElementOnF1 == "ᗧ" || EatByPacman == "@"|| ElementOnF2 == "ᗧ" || EatByPacman == "$"|| ElementOnF3 == "ᗧ"|| EatByPacman == "£") NotDead = false;
+        }
 	}
 }
 
