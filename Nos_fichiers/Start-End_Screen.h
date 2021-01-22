@@ -46,7 +46,9 @@ unsigned Start_Screen(); /*Animation of the Start menu + options choices*/
  */
 
 unsigned End_Screen(); /*Animation of the game over + options choices*/
-
+/*!
+ * \brief Load the Credit Screen
+ */
 void Credit(); /*Credit screen*/
 
 #endif // STARTEND_SCREEN_H
