@@ -14,7 +14,7 @@
 
 
 /**
- * @brief résumé à faire (voir correc prof pour exemple)
+ * @brief getch
  * @return (see example)
  */
 
@@ -23,7 +23,7 @@ int getch(void);
 // https://stackoverflow.com/questions/29335758/using-kbhit-and-getch-on-linux
 
 /**
- * @brief résumé à faire (voir correc prof pour exemple)
+ * @brief kbhit
  * @return (see example)
  */
 
