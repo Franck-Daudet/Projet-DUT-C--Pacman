@@ -17,7 +17,7 @@
 using namespace std;
 
 /**
- * @brief settings : Settings that getting the inputs
+ * @brief inputconfig : Settings that getting the inputs
  */
 
 void inputconfig();
