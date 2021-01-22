@@ -21,11 +21,12 @@ Le jeu consiste à déplacer Pac-Man, un personnage qui, vu de profil, ressemble
 
 ### Tâche :
 - [x] écran d'accueil
-- [ ] classement
+- [x] classement
 - [x] setting
 - [x] pseudo
-- [ ] des objets qui donnent des bonus
+- [x] des objets qui donnent des bonus
 - [x] créations de quelques terrains dont un sera sélectionnés aléatoirement à chaque début de partie
 - [x] des endroits avec des tps
 - [x] écran de game over
-- [ ] commentaire 
+- [x] commentaire 
+- [ ] Musique
