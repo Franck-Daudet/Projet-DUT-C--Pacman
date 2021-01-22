@@ -22,11 +22,11 @@ using namespace std;
  */
 const string KReset   ("0");
 /**
- * @brief KBlack
+ * @brief KBlack : background color
  */
 const string KBlack    ("30");
 /**
- * @brief KRed
+ * @brief KRed : gost color
  */
 const string KRed   ("31");
 /**
@@ -34,11 +34,11 @@ const string KRed   ("31");
  */
 const string KGreen    ("32");
 /**
- * @brief KYellow
+ * @brief KYellow : Pac-man color
  */
 const string KYellow   ("33");
 /**
- * @brief KBlue
+ * @brief KBlue : map color
  */
 const string KBlue    ("34");
 /**
@@ -50,7 +50,7 @@ const string KMagenta ("35");
  */
 const string KCyan    ("36");
 /**
- * @brief KLightGrey
+ * @brief KLightGrey : Pac-gum color
  */
 const string KLightGrey ("37");
 /**
