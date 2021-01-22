@@ -16,23 +16,24 @@
 #include "getch.h"
 #include "alias.h"
 using namespace std;
-
+// MATRICE YX (et non XY)
 /**
- * @brief MapXSize keep a map size on X axis
- * @param [in, out] map
+ * @brief MapXSize
+ * @param map
  */
 unsigned MapXSize (StringMatrix & map);
 
 /**
- * @brief MapYSize keep a map size on Y axis
- * @param [in, out] map
+ * @brief résumé à faire (voir correc prof pour exemple)
+ * @param[in, out] map   petit résumé à faire
+ * @return (voir exemple)
  */
 
 unsigned MapYSize (StringMatrix & map);
 
 /**
- * @brief MoveXElt movement on the X axis
- * @param [in, out] map
+ * @brief MoveXElt
+ * @param map
  * @param pos
  * @param NewX
  */
@@ -40,8 +41,8 @@ unsigned MapYSize (StringMatrix & map);
 void MoveXElt (StringMatrix & map,vector<int> pos, int NewX);
 
 /**
- * @brief MoveYElt movement on the y axis
- * @param [in, out] map
+ * @brief MoveYElt
+ * @param map
  * @param pos
  * @param NewY
  */
@@ -49,91 +50,79 @@ void MoveXElt (StringMatrix & map,vector<int> pos, int NewX);
 void MoveYElt (StringMatrix & map,vector<int> pos, int NewY);
 /**
  * @brief MoveElt
- * @param [in, out] map
+ * @param map
  * @param pos
  * @param Addpos
  * @param character
  * @param stringsiton
- * @return Return the element where the 
+ * @return
  */
 string MoveElt (StringMatrix & map,vector<int> pos,vector<int> Addpos, string character,string stringsiton);
 
 /**
- * @brief ColisionTest test for collision on X and Y axis for walls
- * @param [in, out] FutureElement
- * @return A COMPLETER /!\
+ * @brief ColisionTest
+ * @param FutureElement
+ * @return
  */
 
 bool ColisionTest(string & FutureElement);
-/**
- * @brief PacGumTouchTest test for collision on X and Y axis for Pac-gum
- * @param [in, out] FuturElement
- * @return A COMPLETER /!\
- */
-bool PacGumTouchTest(string & FuturElement);
-/**
- * @brief BonusTouchTest test for collision on X and Y axis for super Pac-gum
- * @param [in, out] FuturElement
- * @return A COMPLETER /!\
- */
-bool BonusTouchTest(string & FuturElement);
 
 /**
- * @brief GoingToJump teleport the character to the other side of the map
- * @param [in, out] map
- * @param [in, out] AddtoPos
- * @param [in, out] pos
- * @return A COMPLETER /!\
+ * @brief résumé à faire (voir correc prof pour exemple)
+ * @param[in, out] map   petit résumé à faire
+ * @param[in, out] AddtoPos   petit résumé à faire
+ * @param[in, out] pos   petit résumé à faire
+ * @return (voir exemple)
  */
 
 bool GoingToJump(StringMatrix & map,vector<int> & AddtoPos,vector<int> & pos);
 
 /**
- * @brief Jump calculate the teleportation point
- * @param [in, out] pos
+ * @brief Jump
+ * @param pos
  * @param Addpos
- * @param [in, out] map
- * @return A COMPLETER /!\
+ * @param map
+ * @return
  */
 
 string Jump(vector<int> & pos,vector<int> Addpos, StringMatrix & map);
 /**
- * @brief MoveList manages Pac-man collisions
- * @param [in, out] map
- * @param [in, out] pos
+ * @brief MoveList
+ * @param map
+ * @param pos
  * @param oldmove
- * @return A COMPLETER /!\
+ * @return
  */
 IntMatrix MoveList (StringMatrix & map,vector<int> pos,vector<int> oldmove );
 /**
- * @brief NextPhantomMove Random ghost movement
- * @param [in, out] map
- * @param [in, out] pos
+ * @brief NextPhantomMove
+ * @param map
+ * @param pos
  * @param oldmove
- * @return A COMPLETER /!\
+ * @return
  */
 vector<int> NextPhantomMove (StringMatrix & map,vector<int> pos,vector<int> oldmove);
 
 /**
- * @brief InputToChar Recover the keys to move PacMan
- * @return A COMPLETER /!\
+ * @brief InputToChar
+ * @return
  */
 vector<int> InputToChar();
 /**
- * @brief MoveCharacter add the different collisions
- * @param [in, out] pos
- * @param [in, out] map
+ * @brief MoveCharacter
+ * @param pos
+ * @param map
  * @param Addtopos
  * @param character
  * @param stringsiton
- * @return A COMPLETER /!\
+ * @return
  */
 string MoveCharacter (vector<int> & pos,StringMatrix & map,vector<int> Addtopos,string character,string stringsiton);
 /**
- * @brief MovePacman lets know what Pac-man is doing
- * @param [in, out] pos
- * @param [in, out] map
- * @return A COMPLETER /!\
+ * @brief MovePacman
+ * @param pos
+ * @param map
+ * @return
  */
 string MovePacman (vector<int> & pos,StringMatrix & map);
 
