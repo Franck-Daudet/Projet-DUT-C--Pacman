@@ -19,7 +19,7 @@ StringMatrix kmap{
     {".",".",".",".",".",".","║",".","║",".",".",".","║","¤","."},
     {".",".","║","●","║",".","║",".","║",".","║",".","║",".","║"},
     {".",".","║",".","║",".","║",".","║",".","║",".","║",".","."},
-    {".",".","║",".",".",".","║",".","║",".",".",".","║",".","."},
+    {".",".","║",".",".",".","║","z","║",".",".",".","║",".","."},
     {".","●","╚",".",".","═","╝",".","╚","═",".","═","╝",".","║"},
     {".",".",".",".",".",".",".","¤",".",".","●",".",".",".","."},
     {"║",".","╔","═",".","═","╗",".","╔","═",".","═","╗",".","║"},
@@ -70,9 +70,9 @@ void Launch_Game(){
     vector<int> posinitf3 {2,4};
     vector<int> oldposf3 {0,0};
 
-    string ElementOnF1 (" ");
-    string ElementOnF2 (" ");
-    string ElementOnF3 (" ");
+    string ElementOnF1 (".");
+    string ElementOnF2 (".");
+    string ElementOnF3 (".");
     string EatByPacman = " ";
     bool NotDead = true;
     unsigned SuperPacGum = 0 ;
@@ -91,23 +91,23 @@ void Launch_Game(){
         ElementOnF2 = MoveCharacter(posf2,kmap,oldposf2,"$",ElementOnF2);
         ElementOnF3 = MoveCharacter(posf3,kmap,oldposf3,"£",ElementOnF3);
 
-        if (ElementOnF1 == "$"){
-            ElementOnF1 = ElementOnF2;
+        if (ElementOnF3 == "@"){
+            ElementOnF3 = ElementOnF1;
         }
-        else if (ElementOnF1 == "£"){
-            ElementOnF1 = ElementOnF3;
+        if (ElementOnF3 == "$"){
+            ElementOnF3 = ElementOnF2;
         }
         if (ElementOnF2 == "@"){
             ElementOnF2 = ElementOnF1;
         }
-        else if (ElementOnF2 == "£"){
+         if (ElementOnF2 == "£"){
             ElementOnF2 = ElementOnF3;
         }
-        if (ElementOnF3 == "@"){
-            ElementOnF3 = ElementOnF1;
+        if (ElementOnF1 == "$"){
+            ElementOnF1 = ElementOnF2;
         }
-        else if (ElementOnF3 == "$"){
-            ElementOnF3 = ElementOnF2;
+        if (ElementOnF1 == "£"){
+            ElementOnF1 = ElementOnF3;
         }
 
         if(SuperPacGum || EatByPacman == "●"){
@@ -149,7 +149,7 @@ void Launch_Game(){
 void PacMan()
 {
     //Musique
-    system("cvlc ../Projet-DUT-C--Pacman/Nos_fichiers/MusicDirectory/pac-man-theme-remix-by-arsenic1987.mp3 &");
+    //system("cvlc ./Nos_fichiers/MusicDirectory/pac-man-theme-remix-by-arsenic1987.mp3"); 
           
     while(true)
     {
