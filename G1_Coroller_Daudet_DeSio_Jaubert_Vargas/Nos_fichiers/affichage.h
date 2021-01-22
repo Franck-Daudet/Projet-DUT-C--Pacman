@@ -70,7 +70,7 @@ const string KBYellow  ("43");
  */
 const string KBBlue    ("44");
 /**
- * @brief Pacman
+ * @brief Pacman : Pac-man skin
  */
 const string Pacman  ("\u15E7");
 
