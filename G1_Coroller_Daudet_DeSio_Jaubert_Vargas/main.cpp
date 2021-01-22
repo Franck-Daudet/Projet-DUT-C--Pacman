@@ -12,6 +12,10 @@
 using namespace std;
 
 // Start game
+/**
+ * @brief main
+ * @return
+ */
 int main()
 {
     PacMan();

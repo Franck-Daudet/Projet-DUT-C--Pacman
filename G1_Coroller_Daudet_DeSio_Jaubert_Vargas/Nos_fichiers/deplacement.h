@@ -17,7 +17,10 @@
 #include "alias.h"
 using namespace std;
 // MATRICE YX (et non XY)
-
+/**
+ * @brief MapXSize
+ * @param map
+ */
 unsigned MapXSize (StringMatrix & map);
 
 /**
@@ -29,35 +32,51 @@ unsigned MapXSize (StringMatrix & map);
 unsigned MapYSize (StringMatrix & map);
 
 /**
- * @brief résumé à faire (voir correc prof pour exemple)
- * @param[in, out] map   petit résumé à faire
- * @param[ (à remplir) ] pos   petit résumé à faire
- * @param[ (à remplir) ] NewX  petit résumé à faire
+ * @brief MoveXElt
+ * @param map
+ * @param pos
+ * @param NewX
  */
 
 void MoveXElt (StringMatrix & map,vector<int> pos, int NewX);
 
 /**
- * @brief résumé à faire (voir correc prof pour exemple)
- * @param[in, out] map   petit résumé à faire
- * @param[ (à remplir) ] pos   petit résumé à faire
- * @param[ (à remplir) ] NewY  petit résumé à faire
+ * @brief MoveYElt
+ * @param map
+ * @param pos
+ * @param NewY
  */
 
 void MoveYElt (StringMatrix & map,vector<int> pos, int NewY);
-
+/**
+ * @brief MoveElt
+ * @param map
+ * @param pos
+ * @param Addpos
+ * @param character
+ * @param stringsiton
+ * @return
+ */
 string MoveElt (StringMatrix & map,vector<int> pos,vector<int> Addpos, string character,string stringsiton);
 
 /**
- * @brief résumé à faire (voir correc prof pour exemple)
- * @param[in, out] FutureElement   petit résumé à faire
- * @return (voir exemple)
+ * @brief ColisionTest
+ * @param FutureElement
+ * @return
  */
 
 bool ColisionTest(string & FutureElement);
-
+/**
+ * @brief PacGumTouchTest
+ * @param FuturElement
+ * @return
+ */
 bool PacGumTouchTest(string & FuturElement);
-
+/**
+ * @brief BonusTouchTest
+ * @param FuturElement
+ * @return
+ */
 bool BonusTouchTest(string & FuturElement);
 
 /**
@@ -71,23 +90,52 @@ bool BonusTouchTest(string & FuturElement);
 bool GoingToJump(StringMatrix & map,vector<int> & AddtoPos,vector<int> & pos);
 
 /**
- * @brief résumé à faire (voir correc prof pour exemple)
- * @param[in, out] AddPos   petit résumé à faire
- * @param[in, out] pos   petit résumé à faire
- * @param[in, out] map   petit résumé à faire
+ * @brief Jump
+ * @param pos
+ * @param Addpos
+ * @param map
+ * @return
  */
 
 string Jump(vector<int> & pos,vector<int> Addpos, StringMatrix & map);
-
+/**
+ * @brief MoveList
+ * @param map
+ * @param pos
+ * @param oldmove
+ * @return
+ */
 IntMatrix MoveList (StringMatrix & map,vector<int> pos,vector<int> oldmove );
-
+/**
+ * @brief NextPhantomMove
+ * @param map
+ * @param pos
+ * @param oldmove
+ * @return
+ */
 vector<int> NextPhantomMove (StringMatrix & map,vector<int> pos,vector<int> oldmove);
 
-
+/**
+ * @brief InputToChar
+ * @return
+ */
 vector<int> InputToChar();
-
+/**
+ * @brief MoveCharacter
+ * @param pos
+ * @param map
+ * @param Addtopos
+ * @param character
+ * @param stringsiton
+ * @return
+ */
 string MoveCharacter (vector<int> & pos,StringMatrix & map,vector<int> Addtopos,string character,string stringsiton);
-
+/**
+ * @brief MovePacman
+ * @param pos
+ * @param map
+ * @return
+ */
 string MovePacman (vector<int> & pos,StringMatrix & map);
 
 #endif // DEPLACEMENT_H

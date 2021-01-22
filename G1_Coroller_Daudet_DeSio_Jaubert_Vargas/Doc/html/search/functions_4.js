@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['kbhit_46',['kbhit',['../getch_8h.html#ad495a5d586ed9343518c0bcfb91e6aa7',1,'getch.cpp']]]
+  ['inputtochar_80',['InputToChar',['../deplacement_8h.html#a021497abb1f443fac2e1c44835ca86e2',1,'deplacement.cpp']]]
 ];

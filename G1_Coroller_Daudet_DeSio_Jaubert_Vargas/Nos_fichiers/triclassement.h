@@ -18,8 +18,8 @@
 
 using namespace std;
 /**
- * @brief Sort the player's score
- * @param
+ * @brief get_rank
+ * @param input
  * @return
  */
 int get_rank(std::string input);

@@ -36,9 +36,8 @@ unsigned Calc();
 
 // start the game and show map/enemies/character
 
-/*!
- * \brief résumé à faire (voir correc prof pour exemple)
- * \fn (voir exemple)
+/**
+ * @brief Launch_Game
  */
 
 void Launch_Game();
