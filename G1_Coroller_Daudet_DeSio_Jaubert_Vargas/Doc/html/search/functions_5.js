@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['showmap',['ShowMap',['../game_8cpp.html#ae161a43a33c6aa4d55e9d74176cf8278',1,'game.cpp']]]
+  ['launch_5fgame_47',['Launch_Game',['../game_8h.html#ad54689a097bac0e11e1a9f0c1bc5f9de',1,'game.cpp']]],
+  ['loadscreen_48',['LoadScreen',['../_start-_end___screen_8h.html#af661dbc7268cd1829a90fc2bad329484',1,'Start-End_Screen.cpp']]]
 ];

@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['initgrid',['InitGrid',['../gridmanagement_8cpp.html#af00a54b22936aa9f51f2a68d7069ee14',1,'InitGrid(CMat &amp;Mat, unsigned NbLine, unsigned NbColumn, CPosition &amp;PosPlayer1, CPosition &amp;PosPlayer2):&#160;gridmanagement.cpp'],['../gridmanagement_8h.html#af00a54b22936aa9f51f2a68d7069ee14',1,'InitGrid(CMat &amp;Mat, unsigned NbLine, unsigned NbColumn, CPosition &amp;PosPlayer1, CPosition &amp;PosPlayer2):&#160;gridmanagement.cpp']]]
+  ['get_5frank_42',['get_rank',['../triclassement_8h.html#aa551ced88aeb9598ab889a6c9535f017',1,'triclassement.cpp']]],
+  ['getch_43',['getch',['../getch_8h.html#af5978fab9fa6dd4ced1c3a8ab1251f7b',1,'getch.cpp']]],
+  ['goingtojump_44',['GoingToJump',['../deplacement_8h.html#ab24bc81520554cc8367342f21d9a8118',1,'deplacement.cpp']]]
 ];
