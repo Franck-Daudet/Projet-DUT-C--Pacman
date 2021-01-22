@@ -110,13 +110,13 @@ IntMatrix MoveList (StringMatrix & map,vector<int> pos,vector<int> oldmove );
  * @param map
  * @param pos
  * @param oldmove
- * @return
+ * @return A COMPLETER /!\
  */
 vector<int> NextPhantomMove (StringMatrix & map,vector<int> pos,vector<int> oldmove);
 
 /**
  * @brief InputToChar
- * @return
+ * @return A COMPLETER /!\
  */
 vector<int> InputToChar();
 /**
@@ -126,14 +126,14 @@ vector<int> InputToChar();
  * @param Addtopos
  * @param character
  * @param stringsiton
- * @return
+ * @return A COMPLETER /!\
  */
 string MoveCharacter (vector<int> & pos,StringMatrix & map,vector<int> Addtopos,string character,string stringsiton);
 /**
  * @brief MovePacman
  * @param pos
  * @param map
- * @return
+ * @return A COMPLETER /!\
  */
 string MovePacman (vector<int> & pos,StringMatrix & map);
 
