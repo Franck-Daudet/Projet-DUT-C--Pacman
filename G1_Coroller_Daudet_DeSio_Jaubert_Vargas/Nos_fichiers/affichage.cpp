@@ -65,12 +65,16 @@ void ShowMap(StringMatrix & map, unsigned & SuperPacGum){
             if ( map[x][y] == Pacman){
         Color(KYellow);}
       else if ( map[x][y] == "@"){
-        Color(KRed);}
+        Color(KGreen);}
       else if ( map[x][y] == "$"){
-        Color(KRed);}
+        Color(KYellow);}
       else if ( map[x][y] == "£"){
         Color(KRed);}
       else if ( map[x][y] == "."){
+        Color(KLightGrey);}
+      else if ( map[x][y] == "¤"){
+        Color(KMagenta);}
+      else if ( map[x][y] == "●"){
         Color(KLightGrey);}
 
       cout << map[x][y];
