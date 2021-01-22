@@ -91,25 +91,6 @@ void Launch_Game(){
         ElementOnF2 = MoveCharacter(posf2,kmap,oldposf2,"$",ElementOnF2);
         ElementOnF3 = MoveCharacter(posf3,kmap,oldposf3,"£",ElementOnF3);
 
-        if (ElementOnF3 == "@"){
-            ElementOnF3 = ElementOnF1;
-        }
-        if (ElementOnF3 == "$"){
-            ElementOnF3 = ElementOnF2;
-        }
-        if (ElementOnF2 == "@"){
-            ElementOnF2 = ElementOnF1;
-        }
-         if (ElementOnF2 == "£"){
-            ElementOnF2 = ElementOnF3;
-        }
-        if (ElementOnF1 == "$"){
-            ElementOnF1 = ElementOnF2;
-        }
-        if (ElementOnF1 == "£"){
-            ElementOnF1 = ElementOnF3;
-        }
-
         if(SuperPacGum || EatByPacman == "●"){
             if(EatByPacman == "●"){
                 SuperPacGum = 15;
@@ -139,6 +120,25 @@ void Launch_Game(){
         }
         else{
             if (ElementOnF1 == "ᗧ" || EatByPacman == "@"|| ElementOnF2 == "ᗧ" || EatByPacman == "$"|| ElementOnF3 == "ᗧ"|| EatByPacman == "£") NotDead = false;
+        }
+
+        if (ElementOnF3 == "@"){
+            ElementOnF3 = ElementOnF1;
+        }
+        if (ElementOnF3 == "$"){
+            ElementOnF3 = ElementOnF2;
+        }
+        if (ElementOnF2 == "@"){
+            ElementOnF2 = ElementOnF1;
+        }
+         if (ElementOnF2 == "£"){
+            ElementOnF2 = ElementOnF3;
+        }
+        if (ElementOnF1 == "$"){
+            ElementOnF1 = ElementOnF2;
+        }
+        if (ElementOnF1 == "£"){
+            ElementOnF1 = ElementOnF3;
         }
         ShowMap(kmap,SuperPacGum);
     }
