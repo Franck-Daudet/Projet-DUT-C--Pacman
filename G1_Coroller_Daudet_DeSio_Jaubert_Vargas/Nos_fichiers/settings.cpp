@@ -8,6 +8,24 @@ using namespace std;
 #include"affichage.h"
 #include"settings.h"
 
+void inputconfig()
+{
+    ifstream inputreeading("../G1_Coroller_Daudet_DeSio_Jaubert_Vargas/Nos_fichiers/config.yaml");
+    string Up;
+    string Down;
+    string Right;
+    string Left;
+    string line;
+    string allinput;
+    while(getline(inputreeading, line))
+    {
+        allinput = allinput + line[line.size()-1];
+    }
+    Down = allinput[0];
+    Left = allinput [1];
+    Right = allinput[2];
+    Up = allinput[3];
+ }
 
 
 
