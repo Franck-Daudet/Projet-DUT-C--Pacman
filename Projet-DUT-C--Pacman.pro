@@ -10,7 +10,7 @@ SOURCES += \
     Nos_fichiers/game.cpp \
     Nos_fichiers/getch.cpp \
     Nos_fichiers/settings.cpp \
-    Nos_fichiers/triclassement.cpp
+    Nos_fichiers/triclassement.cpp \
         main.cpp
 
 HEADERS += \
