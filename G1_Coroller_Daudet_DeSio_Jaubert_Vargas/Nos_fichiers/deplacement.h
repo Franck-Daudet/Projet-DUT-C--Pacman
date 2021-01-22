@@ -120,7 +120,7 @@ vector<int> NextPhantomMove (StringMatrix & map,vector<int> pos,vector<int> oldm
  */
 vector<int> InputToChar();
 /**
- * @brief MoveCharacter 
+ * @brief MoveCharacter add the different collisions
  * @param pos
  * @param map
  * @param Addtopos
