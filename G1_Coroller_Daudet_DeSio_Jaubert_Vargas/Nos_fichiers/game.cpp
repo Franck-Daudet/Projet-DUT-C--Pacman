@@ -237,7 +237,7 @@ void Launch_Game(){
                 }
         }
     }
-    if (Win) {
+    if (Win && !NotDead) {
         Launch_Game();
     }
     }

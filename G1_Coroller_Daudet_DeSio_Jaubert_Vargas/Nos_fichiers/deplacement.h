@@ -16,7 +16,7 @@
 #include "getch.h"
 #include "alias.h"
 using namespace std;
-// MATRICE YX (et non XY)
+
 /**
  * @brief MapXSize keep a map size on X axis
  * @param [in, out] map
@@ -54,7 +54,7 @@ void MoveYElt (StringMatrix & map,vector<int> pos, int NewY);
  * @param Addpos
  * @param character
  * @param stringsiton
- * @return A COMPLETER /!\
+ * @return Return the element where the 
  */
 string MoveElt (StringMatrix & map,vector<int> pos,vector<int> Addpos, string character,string stringsiton);
 
