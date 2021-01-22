@@ -16,7 +16,6 @@
 #include <string>
 #include <iostream>
 #include <fstream>
-#include "alias.h"
 
 
 using namespace std;
@@ -64,7 +63,7 @@ void EntryPlayerscore(unsigned score)
     Scoreplayer.open("../Projet-DUT-C--Pacman-main/Nos_fichiers/TxtDirectory/PlayersScores.txt",ios::out|ios::app);
     if(Scoreplayer)
       {
-        cout << "Entry your username" << endl;
+        cout << "Entry you username" << endl;
         cin >> Playername;
         if (Playername.size() > 15)
           {
@@ -82,23 +81,11 @@ void EntryPlayerscore(unsigned score)
     Scoreplayer.close();
 }
 
-void Displayscore()
-{
-   ifstream Scoreplayerdisplay("PlayersScores.txt");
-   string line;
-   while(getline(Scoreplayerdisplay, line))
-      {
-        cout << line << endl;
-      }
 
-}
-
-void ShowMap(StringMatrix & map, unsigned & SuperPacGum){
+void ShowMap(vector<vector<string>> & map){
 	// Color map and show it
-  string Background = KBBlue;
-  if (SuperPacGum > 0) Background = KBCyan;
 	ClearScreen ();
-	Color(Background);
+	Color(KBBlue);
   Color(KBlack);
 	for (int x = 0; x < map.size(); x++) {
 		for (int y = 0; y < map[x].size(); y++) {
