@@ -3,7 +3,7 @@
 
 /*!
  * \file settings.h
- * \brief Settings and that it
+ * \brief Settings Just the settings
  * \author Nicolas Jaubert
  * \version 1.0
  * \date 21/01/21

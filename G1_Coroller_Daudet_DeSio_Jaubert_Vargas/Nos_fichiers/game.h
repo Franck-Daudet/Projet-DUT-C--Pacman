@@ -27,8 +27,8 @@ using namespace std;
 
 
 /**
- * @brief do at each movements a calculing operation that permit to get the player's score
- * @return (voir exemple)
+ * @brief Calc Do at each movements a calculing operation that permit to get the player's score
+ * @return A COMPLETER /!\
  */
 
 unsigned Calc();
@@ -37,13 +37,13 @@ unsigned Calc();
 // start the game and show map/enemies/character
 
 /**
- * @brief Launch_Game
+ * @brief Launch_Game Launch the game in itself
  */
 
 void Launch_Game();
 
 /*! 
- * \brief main function of the project 
+ * \brief PacMan The main function of the project
  * \fn void PacMan() 
  */ 
 

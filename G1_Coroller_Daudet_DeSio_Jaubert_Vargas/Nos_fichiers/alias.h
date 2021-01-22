@@ -9,19 +9,19 @@
 #include <vector>
 #include <string>
 /**
- * @brief StringVector
+ * @brief StringVector Define the StringVector
  */
 typedef std::vector<std::string> StringVector;
 /**
- * @brief IntVector
+ * @brief IntVector Define the IntVector
  */
 typedef std::vector<int> IntVector ;
 /**
- * @brief StringMatrix
+ * @brief StringMatrix Define the StringMatrix
  */
 typedef std::vector<StringVector> StringMatrix;
 /**
- * @brief IntMatrix
+ * @brief IntMatrix Define the IntMatrix
  */
 typedef std::vector<IntVector> IntMatrix ;
 #endif //ALIAS_H

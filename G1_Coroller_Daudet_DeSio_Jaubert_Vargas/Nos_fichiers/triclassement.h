@@ -4,10 +4,7 @@
 /*!
  * \file triclassement.h
  * \brief sorting player's score in a ranking
- * \author Franck Daudet
  * \author Nicolas Jaubert
- * \author Valere Coroller
- * \author Justin De Sio
  * \author Enzo Vargas
  * \version 1.3
  * \date 07/01/21
@@ -25,7 +22,7 @@ using namespace std;
 int get_rank(std::string input);
 
 /**
- * @brief Sort the player's score
+ * @brief SortDisplay : Sort the player's score
  */
 
 void SortDisplay();
