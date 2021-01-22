@@ -23,7 +23,7 @@ void settings()
              << "first enter for which movement (ex : Down) and then press Enter, " << endl
              << "next press the key you want to put (ex : q) and finally press Enter to validate." <<endl
              << "Press 4 and then Enter to leave the settings "<< endl << endl;
-        ifstream IFlow("../Projet-DUT-C--Pacman/Nos_fichiers/config.yaml"); // Input Flow
+        ifstream IFlow("../G1_Coroller_Daudet_DeSio_Jaubert_Vargas/Nos_fichiers/config.yaml"); // Input Flow
         string line;
         string Delimiter = " : ";
         map<string, string> MapParams = {};
